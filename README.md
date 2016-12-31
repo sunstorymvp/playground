@@ -1,2 +1,2 @@
 # playground
-react and friends
+React and friends
