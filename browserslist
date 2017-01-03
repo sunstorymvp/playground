@@ -1,0 +1,5 @@
+# same should go to .babelrc and .stylelintrc configs until they learn to read browserlist file
+
+last 2 Chrome versions
+last 2 Firefox versions
+last 1 Safari version

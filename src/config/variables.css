@@ -1,0 +1,6 @@
+@custom-media --medium (width >= 800px);
+@custom-media --large (width >= 1200px);
+
+:root {
+  --color-carnation-red: rgb(203, 0, 0);
+}

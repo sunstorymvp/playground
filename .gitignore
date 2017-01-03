@@ -35,3 +35,15 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# macOS
+*.DS_Store
+
+# client build
+dist/
+
+# analyzer report
+webpack_analyzer_report.html
+
+# client tests coverage report
+tests/coverage
