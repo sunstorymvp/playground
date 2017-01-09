@@ -8,7 +8,7 @@ yarn
 
 ### run
 ```
-yarn run start
+yarn run start:development
 ```
 
 open [http://localhost:4000/](http://localhost:4000/).
