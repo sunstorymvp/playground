@@ -6,15 +6,18 @@
   "author": "sunstorymvp",
   "license": "MIT",
   "dependencies": {
+    "normalize.css": "^5.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-helmet": "^3.3.0",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -31,6 +34,7 @@
     "eslint-plugin-node": "^3.0.5",
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "beta",
+    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.25.0",
     "postcss": "^5.2.8",
     "postcss-cssnext": "^2.9.0",
@@ -39,6 +43,7 @@
     "style-loader": "^0.13.1",
     "stylelint": "^7.7.1",
     "stylelint-config-standard": "^15.0.1",
+    "url-loader": "^0.5.7",
     "webpack": "beta",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "beta",
@@ -46,7 +51,8 @@
   },
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --env.development",
-    "analyze": "NODE_ENV=analyze webpack --env.analyze"
+    "analyze": "NODE_ENV=analyze webpack --env.analyze",
+    "build": "NODE_ENV=production webpack --env.production"
   },
   "engines": {
     "node": ">=7.2.1"

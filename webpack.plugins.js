@@ -10,10 +10,19 @@ const { join, resolve } = path;
 
 module.exports = (env) => {
   const html = new HtmlWebpackPlugin({
-    // filename relative to config output.path
+    // filename (unix) relative to config output.path
     filename: 'index.html',
     template: join('src', 'index.html'),
-    inject: true
+    inject: true,
+    minify: env.production ? {
+      collapseWhitespace: true,
+      removeAttributeQuotes: true,
+      removeComments: true,
+      removeOptionalTags: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    } : false
   });
   const commonChunks = new webpack.optimize.CommonsChunkPlugin({
     // filename relative to config output.path

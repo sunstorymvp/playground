@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import App from 'components/app';
+import Home from 'components/home';
 
 const routes = (
-  <Route path="/" component={ App } />
+  <Route path="/" component={ Home } />
 );
 
 export default routes;

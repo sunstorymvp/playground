@@ -13,15 +13,19 @@ module.exports = (env) => ({
   entry: {
     app: resolve('src', 'index.js'),
     vendor: [
+      'normalize.css',
+
       'react',
       'react-dom',
       'react-redux',
       'react-router',
       'react-router-redux',
+      'react-helmet',
       'redux',
       'redux-logger',
       'redux-promise',
-      'redux-thunk'
+      'redux-thunk',
+      'reselect'
     ]
   },
   output: {
