@@ -52,6 +52,7 @@ module.exports = (env) => ({
     aggregateTimeout: 100
   },
   performance: {
-    hints: env.production ? 'warning' : false
+    // disable because minification handled outside of webpack
+    hints: false
   }
 });

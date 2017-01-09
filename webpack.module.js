@@ -19,7 +19,10 @@ module.exports = (env) => ({
         loader: [
           {
             loader: 'css-loader',
-            query: { sourceMap: true }
+            query: {
+              minimize: env.production,
+              sourceMap: env.development
+            }
           },
           { loader: 'postcss-loader' }
         ]

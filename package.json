@@ -27,6 +27,7 @@
     "babel-preset-env": "^1.1.4",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "babili": "^0.0.9",
     "clean-webpack-plugin": "^0.1.14",
     "css-loader": "^0.26.1",
     "css-mqpacker": "^5.0.1",
@@ -50,9 +51,11 @@
     "webpack-notifier": "^1.5.0"
   },
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --env.development",
+    "start:development": "NODE_ENV=development webpack-dev-server --env.development",
+    "compile:production": "NODE_ENV=production webpack --env.production",
+    "build": "npm run compile:production -s && npm run minify -s",
     "analyze": "NODE_ENV=analyze webpack --env.analyze",
-    "build": "NODE_ENV=production webpack --env.production"
+    "minify": "babili dist -d dist --no-comments"
   },
   "engines": {
     "node": ">=7.2.1"
