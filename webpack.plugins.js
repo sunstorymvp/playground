@@ -26,8 +26,8 @@ module.exports = (env) => {
   });
   const commonChunks = new webpack.optimize.CommonsChunkPlugin({
     // filename relative to config output.path
-    filename: '[name].[hash:6].bundle.js',
-    name: 'vendor',
+    filename: '[name].[chunkhash:6].bundle.js',
+    names: [ 'polyfill', 'vendor', 'webpack' ],
     minChunks: 2
   });
   const extractStyles = new ExtractTextPlugin({

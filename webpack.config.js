@@ -12,6 +12,7 @@ if (!NODE_ENV) {
 module.exports = (env) => ({
   entry: {
     app: resolve('src', 'index.js'),
+    polyfill: resolve('src', 'config', 'polyfill.js'),
     vendor: [
       'normalize.css',
 
@@ -30,7 +31,8 @@ module.exports = (env) => ({
   },
   output: {
     path: resolve('dist'),
-    filename: '[name].[hash:6].bundle.js',
+    filename: '[name].[chunkhash:6].bundle.js',
+    chunkFilename: '[id].[chunkhash:6].chunk.js',
     pathinfo: env.development
   },
   resolve: {
