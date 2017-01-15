@@ -34,6 +34,7 @@ module.exports = (env) => {
   const styles = new ExtractTextPlugin({
     // filename relative to config output.path
     filename: env.production ? '[name].[contenthash:6].bundle.css' : '[name].bundle.css',
+    disable: env.development || env.test,
     allChunks: true
   });
   const analyzer = new BundleAnalyzerPlugin({

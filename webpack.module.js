@@ -16,6 +16,7 @@ module.exports = (env) => ({
     {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
         loader: [
           {
             loader: 'css-loader',
