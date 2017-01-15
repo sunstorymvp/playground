@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const { join, resolve } = path;
 
@@ -24,15 +25,15 @@ module.exports = (env) => {
       removeStyleLinkTypeAttributes: true
     } : false
   });
-  const commonChunks = new webpack.optimize.CommonsChunkPlugin({
+  const commons = new webpack.optimize.CommonsChunkPlugin({
     // filename relative to config output.path
-    filename: '[name].[chunkhash:6].bundle.js',
+    filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
     names: [ 'polyfill', 'vendor', 'webpack' ],
     minChunks: 2
   });
-  const extractStyles = new ExtractTextPlugin({
+  const styles = new ExtractTextPlugin({
     // filename relative to config output.path
-    filename: '[name].[contenthash:6].bundle.css',
+    filename: env.production ? '[name].[contenthash:6].bundle.css' : '[name].bundle.css',
     allChunks: true
   });
   const analyzer = new BundleAnalyzerPlugin({
@@ -43,19 +44,24 @@ module.exports = (env) => {
   const environment = new webpack.EnvironmentPlugin([ 'NODE_ENV' ]);
   const noBuildWithErrors = new webpack.NoErrorsPlugin();
   const notifier = new WebpackNotifierPlugin();
-  const clearBuildFolders = new CleanWebpackPlugin([ resolve('dist') ], {
-    verbose: true
-  });
+  const clearBuildFolders = new CleanWebpackPlugin([ resolve('dist') ]);
+  const namedModules = new webpack.NamedModulesPlugin();
+  const progressBar = new ProgressBarPlugin();
 
   const plugins = [
     html,
-    commonChunks,
-    extractStyles,
+    styles,
+    commons,
     environment,
+    progressBar,
     noBuildWithErrors,
-    notifier,
-    clearBuildFolders
+    clearBuildFolders,
+    namedModules
   ];
+
+  if (env.development) {
+    plugins.push(notifier);
+  }
 
   if (env.analyze) {
     plugins.push(analyzer);

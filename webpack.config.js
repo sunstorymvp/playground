@@ -31,8 +31,9 @@ module.exports = (env) => ({
   },
   output: {
     path: resolve('dist'),
-    filename: '[name].[chunkhash:6].bundle.js',
-    chunkFilename: '[id].[chunkhash:6].chunk.js',
+    publicPath: '/',
+    filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
+    chunkFilename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].bundle.js',
     pathinfo: env.development
   },
   resolve: {
@@ -41,13 +42,16 @@ module.exports = (env) => ({
   },
   module: getModule(env),
   plugins: getPlugins(env),
-  devtool: env.development ? 'module-inline-source-map' : false,
+  devtool: env.development && 'module-inline-source-map',
   devServer: {
     historyApiFallback: true,
     port: 4000,
     stats: {
-      chunkModules: false,
-      children: false
+      chunks: false,
+      children: false,
+      hash: false,
+      timings: false,
+      version: false
     }
   },
   watchOptions: {

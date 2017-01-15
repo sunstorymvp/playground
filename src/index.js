@@ -13,7 +13,7 @@ const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: (state) => state.router
 });
 
-const app = (
+const App = () => (
   <Provider store={ store }>
     <Router history={ history } routes={ routes } />
   </Provider>
@@ -21,4 +21,6 @@ const app = (
 
 const root = document.querySelector('#root');
 
-render(app, root);
+render(<App />, root);
+
+module.hot && module.hot.accept();
