@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import AsyncComponent from './async-component';
+import LazyComponent from 'shared/lazy-component';
 
 const getComponent = (path) => (
-  () => <AsyncComponent path={ path } />
+  () => <LazyComponent path={ path } />
 );
 
 const routes = (

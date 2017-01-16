@@ -1,6 +1,6 @@
 import { Component, PropTypes, createElement } from 'react';
 
-class AsyncComponent extends Component {
+class LazyComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -19,7 +19,7 @@ class AsyncComponent extends Component {
 
       this.setState({ component });
     } catch (error) {
-      AsyncComponent.handleError(error);
+      LazyComponent.handleModuleError(error);
     }
   }
 
@@ -29,13 +29,13 @@ class AsyncComponent extends Component {
     return component && createElement(component);
   }
 
-  static handleError(error) {
-    throw new Error(`Async component loading failed: ${ error }`);
+  static handleModuleError(error) {
+    throw new Error(`Module loading failed: ${ error }`);
   }
 }
 
-AsyncComponent.propTypes = {
+LazyComponent.propTypes = {
   path: PropTypes.string.isRequired
 };
 
-export default AsyncComponent;
+export default LazyComponent;
