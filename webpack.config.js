@@ -33,7 +33,7 @@ module.exports = (env) => ({
     path: resolve('dist'),
     publicPath: '/',
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
-    chunkFilename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].bundle.js',
+    chunkFilename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].chunk.js',
     pathinfo: env.development
   },
   resolve: {

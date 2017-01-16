@@ -140,7 +140,7 @@
     "func-name-matching": "error",
     "func-style": [ "error", "expression", { "allowArrowFunctions": true } ],
     "generator-star-spacing": [ "error", "after" ],
-    "global-require": "error",
+    "global-require": "off",
     "guard-for-in": "error",
     "handle-callback-err": "off",
     "id-blacklist": "off",

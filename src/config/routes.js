@@ -1,10 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import Home from 'components/home';
+import AsyncComponent from './async-component';
+
+const getComponent = (path) => (
+  () => <AsyncComponent path={ path } />
+);
 
 const routes = (
-  <Route path="/" component={ Home } />
+  <Route path="/" component={ getComponent('home') } />
 );
 
 export default routes;
