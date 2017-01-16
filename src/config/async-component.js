@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import { Component, PropTypes, createElement } from 'react';
 
 class AsyncComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      Module: null
+      component: null
     };
   }
 
@@ -15,18 +15,18 @@ class AsyncComponent extends Component {
 
   async loadModule() {
     try {
-      const { default: Module } = await import(`components/${ this.props.path }/index.js`);
+      const { default: component } = await import(`components/${ this.props.path }/index.js`);
 
-      this.setState({ Module });
+      this.setState({ component });
     } catch (error) {
       AsyncComponent.handleError(error);
     }
   }
 
   render() {
-    const { Module } = this.state;
+    const { component } = this.state;
 
-    return Module && <Module />;
+    return component && createElement(component);
   }
 
   static handleError(error) {
