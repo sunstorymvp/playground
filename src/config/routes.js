@@ -1,14 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 import LazyComponent from 'shared/lazy-component';
 
-const getComponent = (path) => (
+const wrapLazyComponent = (path) => (
   () => <LazyComponent path={ path } />
 );
 
 const routes = (
-  <Route path="/" component={ getComponent('home') } />
+  <Route path="/">
+    <IndexRoute component={ wrapLazyComponent('home') } />
+    <Route path="some" component={ wrapLazyComponent('some') } />
+  </Route>
 );
 
 export default routes;

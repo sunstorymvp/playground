@@ -25,11 +25,23 @@ module.exports = (env) => {
       removeStyleLinkTypeAttributes: true
     } : false
   });
-  const commons = new webpack.optimize.CommonsChunkPlugin({
+  const webpackCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
     // filename relative to config output.path
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
-    names: [ 'polyfill', 'vendor', 'webpack' ],
-    minChunks: 2
+    names: [ 'vendor', 'polyfill', 'webpack' ]
+  });
+  const npmCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
+    // filename relative to config output.path
+    filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
+    name: 'vendor',
+    chunks: [ 'vendor', 'app' ],
+    minChunks: (module) => /node_modules/.test(module.resource)
+  });
+  const asyncCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
+    // filename relative to config output.path
+    filename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].chunk.js',
+    name: 'app',
+    async: true
   });
   const styles = new ExtractTextPlugin({
     // filename relative to config output.path
@@ -49,10 +61,13 @@ module.exports = (env) => {
   const namedModules = new webpack.NamedModulesPlugin();
   const progressBar = new ProgressBarPlugin();
 
+  // note - keep order for CommonsChunk definitions.
   const plugins = [
     html,
     styles,
-    commons,
+    webpackCommonsChunk,
+    npmCommonsChunk,
+    asyncCommonsChunk,
     environment,
     progressBar,
     noBuildWithErrors,
