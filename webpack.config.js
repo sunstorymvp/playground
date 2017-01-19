@@ -7,6 +7,8 @@ const { NODE_ENV } = process.env;
 
 if (!NODE_ENV) {
   throw new Error('NODE_ENV is not set. You should fix it before continue.');
+} else if (![ 'development', 'production', 'test' ].includes(NODE_ENV)) {
+  throw new Error(`"${ NODE_ENV }" is not a valid NODE_ENV value!`);
 }
 
 module.exports = (env) => ({
