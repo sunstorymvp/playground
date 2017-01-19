@@ -35,7 +35,7 @@ module.exports = (env) => ({
         loader: 'url-loader',
         options: {
           // filename relative to config output.path
-          name: join('assets', 'images', '[name].[hash:6].[ext]'),
+          name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
           limit: 20000
         }
       }
@@ -46,7 +46,7 @@ module.exports = (env) => ({
         loader: 'file-loader',
         options: {
           // filename relative to config output.path
-          name: join('assets', 'fonts', '[name].[hash:6].[ext]')
+          name: join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
         }
       }
     }

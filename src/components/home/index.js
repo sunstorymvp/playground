@@ -6,6 +6,7 @@ const Home = () => (
     <Helmet title="Home"
             titleTemplate="%s - Playground" />
     <h1>Hello world!</h1>
+    <img src={ require('./assets/images/keep-calm-and-react.png') } />
   </div>
 );
 

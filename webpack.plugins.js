@@ -6,6 +6,7 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const { join, resolve } = path;
 
@@ -54,6 +55,9 @@ module.exports = (env) => {
     reportFilename: join('..', 'webpack_analyzer_report.html'),
     analyzerMode: 'static'
   });
+  const minifyImages = new ImageminPlugin({
+    disable: env.development || env.test
+  });
   const environment = new webpack.EnvironmentPlugin([ 'NODE_ENV' ]);
   const noBuildWithErrors = new webpack.NoErrorsPlugin();
   const notifier = new WebpackNotifierPlugin();
@@ -65,6 +69,7 @@ module.exports = (env) => {
   const plugins = [
     html,
     styles,
+    minifyImages,
     webpackCommonsChunk,
     npmCommonsChunk,
     asyncCommonsChunk,
