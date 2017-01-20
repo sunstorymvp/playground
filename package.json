@@ -31,6 +31,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babili": "^0.0.9",
     "clean-webpack-plugin": "^0.1.14",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "css-mqpacker": "^5.0.1",
     "eslint": "^3.12.2",
@@ -55,11 +56,11 @@
     "webpack-notifier": "^1.5.0"
   },
   "scripts": {
-    "start:development": "NODE_ENV=development webpack-dev-server --hot --env.development",
-    "compile:development": "NODE_ENV=development webpack --env.development",
-    "compile:production": "NODE_ENV=production webpack --env.production",
+    "start:development": "cross-env NODE_ENV=development webpack-dev-server --hot --env.development",
+    "compile:development": "cross-env NODE_ENV=development webpack --env.development",
+    "compile:production": "cross-env NODE_ENV=production webpack --env.production",
     "build": "npm run compile:production -s && npm run minify -s",
-    "analyze": "NODE_ENV=production webpack --env.analyze",
+    "analyze": "cross-env NODE_ENV=production webpack --env.analyze",
     "minify": "babili dist -d dist --no-comments"
   },
   "engines": {
