@@ -1,12 +1,43 @@
 # playground
 React and friends
 
-### install
+## what's included
+- [x] react and friends
+- [x] webpack 2
+- [x] code splitting with react-router (`import()`)
+- [x] configured tree shaking (even for vendors)
+- [x] configured HMR
+- [x] smart transpiling with `babel-preset-env` (see [.babelrc](.babelrc))
+- [x] smart polyfills with `babel-preset-env` (see [src/config/polyfill.js](src/config/polyfill.js))
+- [x] smart browser caching with `CommonsChunkPlugin`:
+  - [x] separate webpack boilerplate
+  - [x] separate polyfills
+  - [x] separate vendors entry
+  - [x] separate app entry
+  - [x] separate commons for async chunks
+- [x] cssnext with smart fallbacks (see [browserslist](browserslist))
+- [x] small images inlining
+- [x] media queries merging
+- [x] minification: `babili`, `cssnano`, `html-minifier`, `imagemin`
+- [x] js and css sourcemaps in development
+- [x] linters:
+  - [x] eslint with `node` and `react` plugins
+  - [x] stylelint with `stylelint-config-standard`
+  - [x] every rule configured
+  - [x] removed duplicated rules inherited from `extends`
+- [x] yarn lockfile
+- [ ] jest tests
+- [ ] critical css
+- [ ] graphql client
+- [ ] server-side rendering
+- [ ] ...
+
+## install
 ```
 yarn
 ```
 
-### run
+## run
 ```
 yarn run start:development
 ```
