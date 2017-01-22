@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@types/async@^2.0.31":
+  version "2.0.38"
+  resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.38.tgz#5c369dcb14788da0621daafa8594a053b0edcb21"
+
+"@types/graphql@^0.8.0":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.8.6.tgz#b34fb880493ba835b0c067024ee70130d6f9bb68"
+
+"@types/isomorphic-fetch@0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/isomorphic-fetch/-/isomorphic-fetch-0.0.30.tgz#a21717624cde9a48c2db53a4e500fc5c32a99bbc"
+
 JSONStream@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-0.8.4.tgz#91657dfe6ff857483066132b4618b62e8f4887bd"
@@ -93,6 +105,20 @@ anymatch@^1.3.0:
   dependencies:
     arrify "^1.0.0"
     micromatch "^2.1.5"
+
+apollo-client@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.7.3.tgz#f27702409ce4b90c3adbd78d8434c3e8d762c7dd"
+  dependencies:
+    graphql-anywhere "^2.0.0"
+    graphql-tag "^1.1.1"
+    redux "^3.4.0"
+    symbol-observable "^1.0.2"
+    whatwg-fetch "^2.0.0"
+  optionalDependencies:
+    "@types/async" "^2.0.31"
+    "@types/graphql" "^0.8.0"
+    "@types/isomorphic-fetch" "0.0.30"
 
 aproba@^1.0.3:
   version "1.0.4"
@@ -3022,6 +3048,14 @@ graceful-fs@^4.0.0, graceful-fs@^4.1.2, graceful-fs@^4.1.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
+graphql-anywhere@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-2.0.0.tgz#c20d6e6a901d40fa346d9f2b7845266fc59428bd"
+
+graphql-tag@^1.1.1, graphql-tag@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.2.3.tgz#74c62443fbf3e693647426d7359f7e3e6ce7dace"
+
 growly@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
@@ -3943,6 +3977,10 @@ lodash.escape@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
+lodash.flatten@^4.2.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
+
 lodash.indexof@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/lodash.indexof/-/lodash.indexof-4.0.5.tgz#53714adc2cddd6ed87638f893aa9b6c24e31ef3c"
@@ -3955,9 +3993,13 @@ lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
 
-lodash.isequal@^4.0.0:
+lodash.isequal@^4.0.0, lodash.isequal@^4.1.1:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
+lodash.isobject@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
 
 lodash.isplainobject@^3.2.0:
   version "3.2.0"
@@ -3989,6 +4031,10 @@ lodash.map@^4.6.0:
 lodash.memoize@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
+
+lodash.pick@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
 
 lodash.pickby@^4.6.0:
   version "4.6.0"
@@ -5393,6 +5439,19 @@ rc@^1.1.2, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react-apollo@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.8.1.tgz#3b49368f6f60f309e2e5e695ddbcd759fdc73f2e"
+  dependencies:
+    graphql-anywhere "^2.0.0"
+    hoist-non-react-statics "^1.2.0"
+    invariant "^2.2.1"
+    lodash.flatten "^4.2.0"
+    lodash.isequal "^4.1.1"
+    lodash.isobject "^3.0.2"
+    lodash.pick "^4.4.0"
+    object-assign "^4.0.1"
+
 react-dom@^15.4.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.1.tgz#d54c913261aaedb17adc20410d029dcc18a1344a"
@@ -5601,7 +5660,7 @@ redux-thunk@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.1.0.tgz#c724bfee75dbe352da2e3ba9bc14302badd89a98"
 
-redux@^3.6.0:
+redux@^3.4.0, redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
@@ -6815,7 +6874,7 @@ websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
 
-whatwg-fetch@>=0.10.0:
+whatwg-fetch@>=0.10.0, whatwg-fetch@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.1.tgz#078b9461bbe91cea73cbce8bb122a05f9e92b772"
 

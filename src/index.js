@@ -1,26 +1,20 @@
 import 'index.css';
 
-import React from 'react';
+import { createElement } from 'react';
 import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
 
-import store from 'store';
-import routes from 'config/routes';
+import configureStore from 'store';
+import configureBrowserHistory from 'config/history';
+import apolloClient from 'config/apollo';
+import App from 'core/app';
 
-const history = syncHistoryWithStore(browserHistory, store, {
-  selectLocationState: (state) => state.router
-});
-
-const App = () => (
-  <Provider store={ store }>
-    <Router history={ history } routes={ routes } />
-  </Provider>
-);
-
+const store = configureStore();
+const browserHistory = configureBrowserHistory(store);
 const root = document.querySelector('#root');
+const renderApp = (component, props) => render(createElement(component, props), root);
 
-render(<App />, root);
+renderApp(App, { store, browserHistory, apolloClient });
 
-module.hot && module.hot.accept();
+module.hot && module.hot.accept('core/app', () => (
+  renderApp(require('core/app').default, { store, browserHistory, apolloClient })
+));

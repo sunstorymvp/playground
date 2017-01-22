@@ -6,9 +6,12 @@
   "author": "sunstorymvp",
   "license": "MIT",
   "dependencies": {
+    "apollo-client": "^0.7.3",
+    "graphql-tag": "^1.2.3",
     "lodash": "^4.17.4",
     "normalize.css": "^5.0.0",
     "react": "^15.4.1",
+    "react-apollo": "^0.8.1",
     "react-dom": "^15.4.1",
     "react-helmet": "^3.3.0",
     "react-redux": "^5.0.1",

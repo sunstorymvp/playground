@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { routerReducer as router } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 
+import apolloClient from 'config/apollo';
 import some from './some';
 
 const rootReducer = combineReducers({
-  router,
+  apollo: apolloClient.reducer(),
+  router: routerReducer,
   some
 });
 
