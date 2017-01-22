@@ -30,11 +30,21 @@ module.exports = (env) => ({
       })
     },
     {
-      test: /\.(png|jpe?g|svg|webp)$/,
+      test: /\.(png|jpe?g|webp)$/,
       use: {
         loader: 'url-loader',
         options: {
           // filename relative to config output.path
+          name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
+          limit: 20000
+        }
+      }
+    },
+    {
+      test: /\.svg$/,
+      use: {
+        loader: 'svg-url-loader',
+        options: {
           name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
           limit: 20000
         }
