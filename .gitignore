@@ -48,3 +48,6 @@ webpack_analyzer_report.html
 
 # client tests coverage report
 tests/coverage
+
+# application secrets, tokens, etc.
+constants.secrets.js
