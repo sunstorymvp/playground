@@ -28,7 +28,7 @@ React and friends
 - [x] yarn lockfile
 - [ ] jest tests
 - [ ] critical css
-- [ ] graphql client
+- [x] graphql client ([Apollo](http://dev.apollodata.com/))
 - [ ] server-side rendering
 - [ ] ...
 
