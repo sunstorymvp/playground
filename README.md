@@ -37,6 +37,9 @@ React and friends
 yarn
 ```
 
+## configure
+To provide application secrets (github auth token, etc.) copy and fill [constants.secrets.js.example](src/config/constants.secrets.js.example) then save it without `.example`
+
 ## run
 ```
 yarn run start:development
