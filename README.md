@@ -26,7 +26,7 @@ React and friends
   - [x] every rule configured
   - [x] removed duplicated rules inherited from `extends`
 - [x] yarn lockfile
-- [ ] jest tests
+- [x] jest testing config (with coverage)
 - [ ] critical css
 - [x] graphql client ([Apollo](http://dev.apollodata.com/))
 - [ ] server-side rendering

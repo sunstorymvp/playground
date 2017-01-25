@@ -13,5 +13,13 @@
         ]
       }
     } ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "dynamic-import-node",
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
