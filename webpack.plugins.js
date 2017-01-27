@@ -59,7 +59,7 @@ module.exports = (env) => {
     disable: env.development || env.test
   });
   const environment = new webpack.EnvironmentPlugin([ 'NODE_ENV' ]);
-  const noBuildWithErrors = new webpack.NoErrorsPlugin();
+  const noEmitOnErrors = new webpack.NoEmitOnErrorsPlugin();
   const notifier = new WebpackNotifierPlugin();
   const clearBuildFolders = new CleanWebpackPlugin([ resolve('dist') ]);
   const namedModules = new webpack.NamedModulesPlugin();
@@ -75,7 +75,7 @@ module.exports = (env) => {
     asyncCommonsChunk,
     environment,
     progressBar,
-    noBuildWithErrors,
+    noEmitOnErrors,
     clearBuildFolders,
     namedModules
   ];

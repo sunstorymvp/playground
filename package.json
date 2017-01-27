@@ -43,7 +43,7 @@
     "eslint": "^3.12.2",
     "eslint-plugin-node": "^3.0.5",
     "eslint-plugin-react": "^6.8.0",
-    "extract-text-webpack-plugin": "beta",
+    "extract-text-webpack-plugin": "^2.0.0-rc.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.25.0",
     "imagemin-webpack-plugin": "^1.4.4",
@@ -59,9 +59,9 @@
     "stylelint-config-standard": "^15.0.1",
     "svg-url-loader": "^1.1.1",
     "url-loader": "^0.5.7",
-    "webpack": "beta",
+    "webpack": "^2.2.0",
     "webpack-bundle-analyzer": "^2.2.1",
-    "webpack-dev-server": "beta",
+    "webpack-dev-server": "^2.2.0",
     "webpack-notifier": "^1.5.0"
   },
   "scripts": {
