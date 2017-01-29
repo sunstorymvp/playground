@@ -29,13 +29,13 @@ module.exports = (env) => {
   const webpackCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
     // filename relative to config output.path
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
-    names: [ 'vendor', 'polyfill', 'webpack' ]
+    names: [ 'app', 'vendor', 'polyfill', 'webpack' ]
   });
   const npmCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
     // filename relative to config output.path
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
     name: 'vendor',
-    chunks: [ 'vendor', 'app' ],
+    chunks: [ 'app', 'vendor' ],
     minChunks: (module) => /node_modules/.test(module.resource)
   });
   const asyncCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
