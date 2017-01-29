@@ -4,7 +4,7 @@ const mqpacker = require('css-mqpacker');
 
 module.exports = {
   plugins: [
-    postcssImport(),
+    postcssImport({ path: 'src' }),
     cssnext({
       features: {
         overflowWrap: { method: 'copy' }

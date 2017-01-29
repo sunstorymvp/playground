@@ -15,6 +15,7 @@ React and friends
   - [x] separate vendors entry
   - [x] separate app entry
   - [x] separate commons for async chunks
+- [x] configured [css-modules](https://github.com/css-modules/css-modules)
 - [x] cssnext with smart fallbacks (see [browserslist](browserslist))
 - [x] small images inlining
 - [x] media queries merging

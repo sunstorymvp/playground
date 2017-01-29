@@ -28,7 +28,7 @@ module.exports = (env) => ({
   },
   resolve: {
     extensions: [ '.js', '.json' ],
-    modules: [ 'src', 'node_modules' ]
+    modules: [ resolve('src'), 'node_modules' ]
   },
   module: getModule(env),
   plugins: getPlugins(env),

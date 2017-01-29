@@ -2,10 +2,10 @@
 
 body {
   display: flex;
-  /*background-color: var(--color-carnation-red);*/
+  background-color: var(--color-carnation-red);
   color: gray(10%, 50%);
 
   @media (--medium) {
-    /*background-color: rgb(145, 36, 177);*/
+    background-color: transparent;
   }
 }

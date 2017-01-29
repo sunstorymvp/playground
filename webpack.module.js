@@ -22,7 +22,9 @@ module.exports = (env) => ({
             loader: 'css-loader',
             query: {
               minimize: env.production,
-              sourceMap: env.development
+              sourceMap: env.development,
+              localIdentName: env.production ? '[hash:6]' : '[path][name]__[local]',
+              modules: true
             }
           },
           { loader: 'postcss-loader' }
