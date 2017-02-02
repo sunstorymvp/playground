@@ -12,4 +12,6 @@ addons:
     packages:
       - g++-4.8
 script:
+  - yarn run build
+  - yarn run lint
   - yarn run test
