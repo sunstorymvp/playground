@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sunstorymvp/playground.svg?branch=master)](https://travis-ci.org/sunstorymvp/playground)
+
 # playground
 React and friends
 
