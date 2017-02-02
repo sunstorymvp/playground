@@ -20,7 +20,7 @@ module.exports = (env) => ({
         loader: [
           {
             loader: 'css-loader',
-            query: {
+            options: {
               minimize: env.production,
               sourceMap: env.development,
               localIdentName: env.production ? '[hash:6]' : '[path][name]__[local]',

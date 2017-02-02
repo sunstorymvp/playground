@@ -32,8 +32,9 @@ module.exports = (env) => ({
   },
   module: getModule(env),
   plugins: getPlugins(env),
-  devtool: env.development && 'module-inline-source-map',
+  devtool: env.development && 'inline-source-map',
   devServer: {
+    compress: true,
     historyApiFallback: true,
     port: 4000,
     stats: {
@@ -45,7 +46,8 @@ module.exports = (env) => ({
     }
   },
   watchOptions: {
-    aggregateTimeout: 100
+    aggregateTimeout: 100,
+    ignored: /node_modules/
   },
   performance: {
     // disable because minification handled outside of webpack

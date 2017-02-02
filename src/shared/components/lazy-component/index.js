@@ -1,13 +1,11 @@
 import { Component, PropTypes, createElement } from 'react';
 
 class LazyComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      component: null
-    };
+  static handleModuleError(error) {
+    throw new Error(`Module loading failed: ${ error }`);
   }
+
+  state = { component: null }
 
   componentDidMount() {
     this.loadModule();
@@ -27,10 +25,6 @@ class LazyComponent extends Component {
     const { component } = this.state;
 
     return component && createElement(component);
-  }
-
-  static handleModuleError(error) {
-    throw new Error(`Module loading failed: ${ error }`);
   }
 }
 
