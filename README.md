@@ -31,6 +31,7 @@ React and friends
 - [ ] critical css
 - [x] graphql client ([Apollo](http://dev.apollodata.com/))
 - [ ] server-side rendering
+- [x] Travis CI
 - [ ] ...
 
 ## install

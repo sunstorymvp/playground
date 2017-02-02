@@ -81,6 +81,6 @@
     "test:coverage": "npm run test -s -- --coverage"
   },
   "engines": {
-    "node": ">=7.2.1"
+    "node": ">=6.9.1"
   }
 }
