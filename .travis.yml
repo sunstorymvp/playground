@@ -11,6 +11,8 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+before_script:
+  - cp src/config/constants.secrets.js.example src/config/constants.secrets.js
 script:
   - yarn run build
   - yarn run test
