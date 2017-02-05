@@ -1,4 +1,4 @@
-# same should go to .babelrc and .stylelintrc configs until they learn to read browserslist file
+# same should go to .babelrc config until it learn to read browserslist file
 
 last 2 Chrome versions
 last 2 Firefox versions

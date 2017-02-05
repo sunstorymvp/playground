@@ -50,6 +50,3 @@ yarn run start:development
 ```
 
 open [http://localhost:4000/](http://localhost:4000/).
-
-## known issues
-stylelint throws error because [mixins.css](src/config/mixins.css) contains custom-property-sets. See https://github.com/stylelint/stylelint/issues/626. Waiting for the fix. Workaround is to use stylelint via editor plugin.
