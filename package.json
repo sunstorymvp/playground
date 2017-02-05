@@ -73,9 +73,9 @@
     "build": "npm run compile:production -s && npm run minify -s",
     "analyze": "cross-env NODE_ENV=production webpack --env.analyze",
     "minify": "babili dist -d dist --no-comments",
-    "lint": "npm run lint:eslint & npm run lint:stylelint",
-    "lint:eslint": "eslint --cache . || exit 0",
-    "lint:stylelint": "stylelint **/src/**/*.css || exit 0",
+    "lint": "npm run lint:eslint -s & npm run lint:stylelint -s",
+    "lint:eslint": "eslint --cache .",
+    "lint:stylelint": "stylelint **/src/**/*.css",
     "test": "cross-env NODE_ENV=test jest --config .jestrc",
     "test:watch": "npm run test -s -- --watch",
     "test:coverage": "npm run test -s -- --coverage"
