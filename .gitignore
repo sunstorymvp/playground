@@ -43,6 +43,9 @@ jspm_packages
 # macOS
 *.DS_Store
 
+# eslint cache file
+.eslintcache
+
 # client build
 dist/
 
