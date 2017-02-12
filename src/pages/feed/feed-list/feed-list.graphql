@@ -1,0 +1,32 @@
+query starredRepositoriesQuery($githubLogin: String!) {
+  user(login: $githubLogin) {
+    following(first: 10) {
+      edges {
+        node {
+          ...userInfo,
+          starredRepositories(first: 3, orderBy: { field: STARRED_AT, direction: DESC } ) {
+            edges {
+              cursor,
+              starredAt,
+              node {
+                ...repositoryInfo
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment userInfo on User {
+  name,
+  avatarURL
+}
+
+fragment repositoryInfo on Repository {
+  url,
+  homepageURL,
+  name,
+  description
+}

@@ -1,0 +1,30 @@
+@import "config/variables";
+
+.root {
+  @media (--medium) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    margin-left: -350px;
+    width: auto;
+    height: 33%;
+    border-bottom: 1px solid var(--color-pearl-gray);
+  }
+
+  @media (--large) {
+    width: 350px;
+    height: 100%;
+    border-right: 1px solid var(--color-pearl-gray);
+  }
+
+  &Loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "Loading...";
+    }
+  }
+}

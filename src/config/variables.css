@@ -1,7 +1,13 @@
-@custom-media --medium (width >= 800px);
-@custom-media --large (width >= 1200px);
+@custom-media --medium (width >= 640px);
+@custom-media --large (width >= 960px);
 
 :root {
-  --color-carnation-red: rgb(203, 0, 0);
-  --color-space-gray: rgb(118, 118, 118);
+  --color-black: rgb(0, 0, 0);
+  --color-deep-gray: rgb(51, 51, 51);
+  --color-concrete-gray: rgb(153, 153, 153);
+  --color-pearl-gray: rgb(221, 221, 221);
+  --color-white: rgb(255, 255, 255);
+  --color-space-blue: rgb(37, 42, 58);
+  --color-sea-blue: rgb(75, 113, 151);
+  --color-sky-blue: rgb(27, 153, 249);
 }

@@ -1,5 +1,0 @@
-@import "config/variables";
-
-.some-class {
-  color: var(--color-space-gray);
-}

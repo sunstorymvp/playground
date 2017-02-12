@@ -1,13 +1,13 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const { join } = path;
+const { join, resolve } = path;
 
 module.exports = (env) => ({
   rules: [
     {
       test: /\.js$/,
-      exclude: /node_modules/,
+      include: resolve('src'),
       use: {
         loader: 'babel-loader',
         options: { cacheDirectory: env.development }
@@ -15,6 +15,7 @@ module.exports = (env) => ({
     },
     {
       test: /\.css$/,
+      include: resolve('src'),
       use: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
@@ -28,6 +29,22 @@ module.exports = (env) => ({
             }
           },
           { loader: 'postcss-loader' }
+        ]
+      })
+    },
+    {
+      test: /\.css$/,
+      include: resolve('node_modules'),
+      use: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: [
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: env.production,
+              sourceMap: env.development
+            }
+          }
         ]
       })
     },
@@ -61,6 +78,10 @@ module.exports = (env) => ({
           name: join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
         }
       }
+    },
+    {
+      test: /\.(graphql|gql)$/,
+      use: { loader: 'graphql-tag/loader' }
     }
   ]
 });

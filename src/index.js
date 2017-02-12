@@ -1,9 +1,8 @@
-import 'index.css';
-
 import { createElement } from 'react';
 import { render } from 'react-dom';
 
-import configureStore from 'store';
+import 'index.css';
+import configureStore from 'config/store';
 import configureBrowserHistory from 'config/history';
 import apolloClient from 'config/apollo';
 import App from 'core/app';

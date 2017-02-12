@@ -1,11 +1,10 @@
 @import "config/variables";
 
 body {
-  display: flex;
-  background-color: var(--color-carnation-red);
-  color: gray(10%, 50%);
+  color: var(--color-deep-gray);
+}
 
-  @media (--medium) {
-    background-color: transparent;
-  }
+a {
+  text-decoration: none;
+  color: var(--color-sky-blue);
 }

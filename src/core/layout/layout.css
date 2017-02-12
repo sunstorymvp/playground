@@ -1,0 +1,8 @@
+@import "config/variables";
+
+.root {
+  @media (--medium) {
+    padding-left: 500px;
+    position: relative;
+  }
+}

@@ -13,11 +13,9 @@ if (!NODE_ENV) {
 
 module.exports = (env) => ({
   entry: {
-    app: resolve('src', 'index.js'),
     polyfill: resolve('src', 'config', 'polyfill.js'),
-    vendor: [
-      'normalize.css'
-    ]
+    vendor: resolve('src', 'config', 'vendor.js'),
+    app: resolve('src', 'index.js')
   },
   output: {
     path: resolve('dist'),
