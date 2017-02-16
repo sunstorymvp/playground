@@ -17,3 +17,4 @@ script:
   - yarn run build
   - yarn run test
   - yarn run lint
+  - yarn run analyze:copypaste

@@ -1,0 +1,12 @@
+languages:
+  - javascript
+  - css
+files:
+  - "src/**/*"
+exclude:
+  - "src/tests/**/*"
+blame: true
+skip-comments: true
+verbose: true
+min-lines: 3
+min-tokens: 50

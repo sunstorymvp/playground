@@ -4,7 +4,7 @@ query starredRepositoriesQuery($githubLogin: String!) {
       edges {
         node {
           ...userInfo,
-          starredRepositories(first: 3, orderBy: { field: STARRED_AT, direction: DESC } ) {
+          starredRepositories(first: 3, orderBy: { field: STARRED_AT, direction: DESC }) {
             edges {
               cursor,
               starredAt,

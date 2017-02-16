@@ -32,6 +32,7 @@ React and friends
 - [x] jest testing config (with coverage)
 - [x] graphql client ([Apollo](http://dev.apollodata.com/))
 - [x] Travis CI
+- [x] configured [copy-paste](https://github.com/kucherenko/jscpd) detector
 
 ## install
 ```

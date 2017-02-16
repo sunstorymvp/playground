@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import styles from './navigation.css';
 
-const FeedLayout = () => (
+const Navigation = () => (
   <div className={ classNames('pure-u', styles.root) }>
     <a href="#" className={ styles.menuButton }>Menu</a>
 
@@ -17,4 +17,4 @@ const FeedLayout = () => (
   </div>
 );
 
-export default FeedLayout;
+export default Navigation;
