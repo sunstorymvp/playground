@@ -8,17 +8,15 @@ module.exports = (env) => ({
     {
       test: /\.js$/,
       include: resolve('src'),
-      use: {
-        loader: 'babel-loader',
-        options: { cacheDirectory: env.development }
-      }
+      loader: 'babel-loader',
+      options: { cacheDirectory: env.development }
     },
     {
       test: /\.css$/,
       include: resolve('src'),
       use: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: [
+        fallback: 'style-loader',
+        use: [
           {
             loader: 'css-loader',
             options: {
@@ -36,52 +34,42 @@ module.exports = (env) => ({
       test: /\.css$/,
       include: resolve('node_modules'),
       use: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: [
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: env.production,
-              sourceMap: env.development
-            }
+        fallback: 'style-loader',
+        use: {
+          loader: 'css-loader',
+          options: {
+            minimize: env.production,
+            sourceMap: env.development
           }
-        ]
+        }
       })
     },
     {
       test: /\.(png|jpe?g|webp)$/,
-      use: {
-        loader: 'url-loader',
-        options: {
-          // filename relative to config output.path
-          name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
-          limit: 20000
-        }
+      loader: 'url-loader',
+      options: {
+        name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
+        limit: 20000
       }
     },
     {
       test: /\.svg$/,
-      use: {
-        loader: 'svg-url-loader',
-        options: {
-          name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
-          limit: 20000
-        }
+      loader: 'svg-url-loader',
+      options: {
+        name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
+        limit: 20000
       }
     },
     {
       test: /\.(woff|woff2)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          // filename relative to config output.path
-          name: join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
-        }
+      loader: 'file-loader',
+      options: {
+        name: join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
       }
     },
     {
       test: /\.(graphql|gql)$/,
-      use: { loader: 'graphql-tag/loader' }
+      loader: 'graphql-tag/loader'
     }
   ]
 });

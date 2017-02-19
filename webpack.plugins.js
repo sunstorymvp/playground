@@ -27,31 +27,26 @@ module.exports = (env) => {
     } : false
   });
   const webpackCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
-    // filename relative to config output.path
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
     names: [ 'app', 'vendor', 'polyfill', 'webpack' ]
   });
   const npmCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
-    // filename relative to config output.path
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
     name: 'vendor',
     chunks: [ 'app', 'vendor' ],
     minChunks: (module) => /node_modules/.test(module.resource)
   });
   const asyncCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
-    // filename relative to config output.path
     filename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].chunk.js',
     name: 'app',
     async: true
   });
   const styles = new ExtractTextPlugin({
-    // filename relative to config output.path
     filename: env.production ? '[name].[contenthash:6].bundle.css' : '[name].bundle.css',
     disable: env.development || env.test,
     allChunks: true
   });
   const analyzer = new BundleAnalyzerPlugin({
-    // filename relative to config output.path
     reportFilename: join('..', 'webpack_analyzer_report.html'),
     analyzerMode: 'static'
   });
