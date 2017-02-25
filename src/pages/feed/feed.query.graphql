@@ -1,16 +1,14 @@
-query starredRepositories($githubLogin: String!) {
-  user(login: $githubLogin) {
+query starredRepositories($login: String!) {
+  user(login: $login) {
     following(first: 10) {
-      edges {
-        node {
-          ...userInfo,
-          starredRepositories(first: 3, orderBy: { field: STARRED_AT, direction: DESC }) {
-            edges {
-              cursor,
-              starredAt,
-              node {
-                ...repositoryInfo
-              }
+      nodes {
+        ...userInfo,
+        starredRepositories(first: 3, orderBy: { field: STARRED_AT, direction: DESC }) {
+          edges {
+            cursor,
+            starredAt,
+            node {
+              ...repositoryInfo
             }
           }
         }

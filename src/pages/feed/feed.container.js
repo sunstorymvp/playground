@@ -10,10 +10,10 @@ const mapStateToProps = (state) => ({
   settings: settingsSelector(state)
 });
 
-const mergeData = (followingEdge) => (repositoryEdge) => ({
+const mergeData = (followingNode) => (repositoryEdge) => ({
   cursor: repositoryEdge.cursor,
-  userName: followingEdge.node.name,
-  userAvatarURL: followingEdge.node.avatarURL,
+  userName: followingNode.name,
+  userAvatarURL: followingNode.avatarURL,
   starredAt: new Date(repositoryEdge.starredAt),
   repositoryURL: repositoryEdge.node.url,
   repositoryName: repositoryEdge.node.name,
@@ -21,8 +21,8 @@ const mergeData = (followingEdge) => (repositoryEdge) => ({
 });
 
 const mapQueryData = (user) => {
-  const data = user.following.edges.map((followingEdge) => (
-    followingEdge.node.starredRepositories.edges.map(mergeData(followingEdge))
+  const data = user.following.nodes.map((followingNode) => (
+    followingNode.starredRepositories.edges.map(mergeData(followingNode))
   ));
   const flattenData = flatten(data);
   const sortedData = sortBy(flattenData, (feed) => -feed.starredAt);
@@ -37,7 +37,7 @@ const starredRepositoriesQueryOptions = {
   }),
   options: ({ settings }) => ({
     pollInterval: settings.github.pollInterval,
-    variables: { githubLogin: settings.github.login }
+    variables: { login: settings.github.login }
   })
 };
 
