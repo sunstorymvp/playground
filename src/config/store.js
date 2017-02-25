@@ -7,8 +7,8 @@ import enhancer from './store.enhancer';
 const configureStore = () => {
   const store = createStore(rootReducer, initialState, enhancer);
 
-  // TODO: check reducers HMR
-  // possibly not working after moving reducers to features
+  // TODO: fix reducers HMR
+  // not working after moving reducers to features
   module.hot && module.hot.accept() && module.hot.accept('./store.root-reducer', () => (
     store.replaceReducer(require('./store.root-reducer').default)
   ));

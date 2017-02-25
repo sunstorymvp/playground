@@ -1,4 +1,4 @@
-query starredRepositoriesQuery($githubLogin: String!) {
+query starredRepositories($githubLogin: String!) {
   user(login: $githubLogin) {
     following(first: 10) {
       edges {

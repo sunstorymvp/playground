@@ -1,10 +1,9 @@
 @import "config/variables";
 
 .root {
-  display: block;
-  padding: 0.9em 1em;
+  display: flex;
+  padding: 10px;
   border-bottom: 1px solid var(--color-pearl-gray);
-  border-left: 6px solid transparent;
 
   &:hover {
     background-color: var(--color-pearl-gray);
@@ -13,16 +12,11 @@
 
 .avatar {
   display: block;
-  margin-right: 0.5em;
-  width: 40px;
-  height: 40px;
+  margin-right: 10px;
+  width: 64px;
+  height: 64px;
   background-size: cover;
   background-repeat: no-repeat;
-
-  @media (--large) {
-    width: 64px;
-    height: 64px;
-  }
 }
 
 .name,

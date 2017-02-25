@@ -5,16 +5,20 @@ import styles from './feed-list.css';
 import FeedListItem from '../feed-list-item';
 
 const FeedList = ({ feed, loading }) => (
-  <div className={ classNames('pure-u-1', styles.root, { [styles.rootLoading]: loading }) }>
-    { loading || feed.map(({ id, ...itemData }) => (
-      <FeedListItem key={ id } { ...itemData } />
+  <div className={ classNames(styles.root, { [styles.rootLoading]: loading }) }>
+    { loading || feed.map(({ cursor, ...itemData }) => (
+      <FeedListItem key={ cursor } { ...itemData } />
     )) }
   </div>
 );
 
 FeedList.propTypes = {
-  feed: PropTypes.array.isRequired,
+  feed: PropTypes.array,
   loading: PropTypes.bool.isRequired
+};
+
+FeedList.defaultProps = {
+  feed: []
 };
 
 export default FeedList;

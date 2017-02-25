@@ -1,13 +1,13 @@
 import React from 'react';
 
-import LazyComponent from 'shared/lazy-component';
 import Layout from 'core/layout';
 import FeedList from './feed-list';
+import FeedListPreview from './feed-item-preview';
 
-const Feed = () => (
+const Feed = (props) => (
   <Layout>
-    <FeedList />
-    <LazyComponent path="pages/feed/feed-item-preview" />
+    <FeedList { ...props } />
+    <FeedListPreview />
   </Layout>
 );
 

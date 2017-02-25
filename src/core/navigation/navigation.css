@@ -1,51 +1,18 @@
 @import "config/variables";
 
 .root {
-  width: 100%;
-  height: 40px;
-  position: relative;
-  background: var(--color-space-blue);
-  text-align: center;
-
-  @media (--medium) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    overflow: auto;
-    margin-left: -500px;
-    width: 150px;
-    height: 100%;
-  }
-}
-
-.menuButton {
-  display: block;
-  top: 0.5em;
-  right: 0.5em;
-  position: absolute;
-
-  @media (--medium) {
-    display: none;
-  }
+  flex-shrink: 0;
+  width: 200px;
+  height: 100%;
 }
 
 .menu {
-  display: none;
-  background: transparent;
-  border: none;
-  text-align: left;
-
-  @media (--medium) {
-    display: block;
-    padding: 2em 0;
-  }
+  display: block;
+  padding: 20px 10px;
+  margin: 0;
+  list-style: none;
 }
 
 .menuLink {
   color: var(--color-white);
-  margin-left: 0.5em;
-}
-
-.count {
-  color: var(--color-sea-blue);
 }

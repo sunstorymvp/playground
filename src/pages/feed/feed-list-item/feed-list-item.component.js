@@ -1,20 +1,19 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 import moment from 'moment';
 
 import styles from './feed-list-item.css';
 
 const FeedListItem = (props) => (
-  <a className={ classNames('pure-g', styles.root) }
+  <a className={ styles.root }
      href={ props.repositoryURL }
      target="_blank"
      rel="noopener noreferrer">
 
-    <div className="pure-u">
+    <div>
       <span className={ styles.avatar } style={ { backgroundImage: `url('${ props.userAvatarURL }')` } } />
     </div>
 
-    <div className="pure-u-3-4">
+    <div>
       <h5 className={ styles.name }>{ props.userName } { props.starredAt && moment(props.starredAt).fromNow() }</h5>
       <h4 className={ styles.subject }>{ props.repositoryName }</h4>
       {

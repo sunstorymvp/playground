@@ -14,6 +14,6 @@ const auth = {
 
 networkInterface.use([ auth ]);
 
-const apolloClient = new ApolloClient({ networkInterface });
+const client = new ApolloClient({ networkInterface });
 
-export default apolloClient;
+export default client;

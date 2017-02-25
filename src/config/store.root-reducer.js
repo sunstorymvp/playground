@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import apolloClient from './apollo';
-import { reducer as pages } from 'pages/pages.duck';
+import client from './apollo';
+import { reducer as settings } from 'core/settings/settings.duck';
+import { reducer as entities } from 'core/entities/entities.duck';
 
 const rootReducer = combineReducers({
-  apollo: apolloClient.reducer(),
+  apollo: client.reducer(),
   router: routerReducer,
-  pages
+  settings,
+  entities
 });
 
 export default rootReducer;

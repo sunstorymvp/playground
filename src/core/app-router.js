@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
-import { Router, Route } from 'react-router';
+import { Router, IndexRoute, Route } from 'react-router';
 
 import LazyComponent from 'shared/lazy-component';
-
-const wrapLazyComponent = (path) => (
-  () => <LazyComponent path={ path } />
-);
+import Feed from 'pages/feed';
 
 const AppRouter = ({ browserHistory }) => (
   <Router history={ browserHistory }>
-    <Route path="/" component={ wrapLazyComponent('pages/feed') } />
+    <Route path="/">
+      <IndexRoute component={ Feed } />
+      <Route path="settings" component={ LazyComponent.wrap('pages/settings') } />
+    </Route>
   </Router>
 );
 

@@ -5,13 +5,13 @@ import { routerMiddleware } from 'react-router-redux';
 import promise from 'redux-promise';
 import { browserHistory } from 'react-router';
 
-import apolloClient from './apollo';
+import client from './apollo';
 
 const { NODE_ENV } = process.env;
 
 const router = routerMiddleware(browserHistory);
 const logger = createLogger({ collapsed: true });
-const apollo = apolloClient.middleware();
+const apollo = client.middleware();
 
 const middlewares = [ promise, thunk, router, apollo ];
 

@@ -4,8 +4,8 @@ import ApolloClient from 'apollo-client';
 
 import AppRouter from './app-router';
 
-const App = ({ store, browserHistory, apolloClient }) => (
-  <ApolloProvider store={ store } client={ apolloClient }>
+const App = ({ store, browserHistory, client }) => (
+  <ApolloProvider store={ store } client={ client }>
     <AppRouter browserHistory={ browserHistory } />
   </ApolloProvider>
 );
@@ -13,7 +13,7 @@ const App = ({ store, browserHistory, apolloClient }) => (
 App.propTypes = {
   store: PropTypes.object.isRequired,
   browserHistory: PropTypes.object.isRequired,
-  apolloClient: PropTypes.instanceOf(ApolloClient).isRequired
+  client: PropTypes.instanceOf(ApolloClient).isRequired
 };
 
 export default App;

@@ -1,1 +1,1 @@
-import 'purecss';
+import 'normalize.css';

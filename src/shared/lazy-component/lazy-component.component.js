@@ -1,4 +1,4 @@
-import { Component, PropTypes, createElement } from 'react';
+import React, { Component, PropTypes, createElement } from 'react';
 
 class LazyComponent extends Component {
   static propTypes = {
@@ -8,6 +8,10 @@ class LazyComponent extends Component {
   static handleModuleError(error) {
     throw new Error(`Module loading failed: ${ error }`);
   }
+
+  static wrap = (path) => (
+    () => <LazyComponent path={ path } />
+  )
 
   state = { component: null }
 

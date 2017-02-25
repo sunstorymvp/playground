@@ -1,1 +1,1 @@
-export default from './feed-list.container';
+export default from './feed-list.component';
