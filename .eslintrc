@@ -10,18 +10,17 @@
     "jasmine": true
   },
   "plugins": [
-    "node",
+    "babel",
     "react"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:node/recommended",
     "plugin:react/recommended"
   ],
   "rules": {
     "no-alert": "error",
     "no-array-constructor": "error",
-    "no-await-in-loop": "error",
+    "no-await-in-loop": "off",
     "no-bitwise": "error",
     "no-caller": "error",
     "no-catch-shadow": "error",
@@ -45,7 +44,7 @@
     "no-implicit-globals": "error",
     "no-implied-eval": "error",
     "no-inline-comments": "error",
-    "no-invalid-this": "error",
+    "no-invalid-this": "off",
     "no-iterator": "error",
     "no-label-var": "error",
     "no-labels": "error",
@@ -164,13 +163,13 @@
     "max-statements": "off",
     "max-statements-per-line": "off",
     "multiline-ternary": "off",
-    "new-cap": "error",
+    "new-cap": "off",
     "new-parens": "error",
     "newline-after-var": "error",
     "newline-before-return": "error",
     "newline-per-chained-call": "off",
     "object-curly-newline": "off",
-    "object-curly-spacing": [ "error", "always" ],
+    "object-curly-spacing": "off",
     "object-property-newline": "off",
     "object-shorthand": "error",
     "one-var": [ "error", "never" ],
@@ -216,12 +215,10 @@
     "yield-star-spacing": [ "error", "after" ],
     "yoda": "off",
 
-    "node/exports-style": [ "error", "module.exports" ],
-    "node/no-missing-import": "off",
-    "node/no-missing-require": "off",
-    "node/no-unpublished-import": "off",
-    "node/no-unpublished-require": "off",
-    "node/no-unsupported-features": "off",
+    "babel/new-cap": "error",
+    "babel/object-curly-spacing": [ "error", "always" ],
+    "babel/no-await-in-loop": "error",
+    "babel/no-invalid-this": "error",
 
     "react/display-name": "off",
     "react/forbid-component-props": "off",

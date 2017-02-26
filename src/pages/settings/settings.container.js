@@ -41,7 +41,6 @@ class SettingsContainer extends Component {
 
     form.reset();
 
-    // eslint-disable-next-line no-invalid-this
     this.props.actions.updateSettings(settings);
   }
 
