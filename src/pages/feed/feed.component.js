@@ -4,9 +4,9 @@ import Layout from 'core/layout';
 import FeedList from './feed-list';
 import FeedListPreview from './feed-item-preview';
 
-const Feed = (props) => (
+const Feed = () => (
   <Layout>
-    <FeedList { ...props } />
+    <FeedList />
     <FeedListPreview />
   </Layout>
 );

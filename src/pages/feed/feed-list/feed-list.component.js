@@ -13,12 +13,8 @@ const FeedList = ({ feed, loading }) => (
 );
 
 FeedList.propTypes = {
-  feed: PropTypes.array,
+  feed: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired
-};
-
-FeedList.defaultProps = {
-  feed: []
 };
 
 export default FeedList;

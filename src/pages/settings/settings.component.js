@@ -11,11 +11,11 @@ const Settings = ({ onSubmit, settings }) => (
       <form onSubmit={ onSubmit }>
         <p>
           <label>GitHub login: </label>
-          <input type="text" name="github_login" placeholder={ settings.github.login } />
+          <input type="text" name="githubLogin" placeholder={ settings.github.login } />
         </p>
         <p>
           <label>GitHub poll interval: </label>
-          <input type="number" name="github_poll_interval" placeholder={ settings.github.pollInterval } />
+          <input type="number" name="githubPollInterval" placeholder={ settings.github.pollInterval } />
         </p>
         <button>Save</button>
       </form>

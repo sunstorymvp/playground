@@ -15,6 +15,8 @@ const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(settingsActions, dispatch)
 });
 
+const withState = connect(mapStateToProps, mapDispatchToProps);
+
 class SettingsContainer extends Component {
   static propTypes = {
     settings: PropTypes.object.isRequired,
@@ -22,7 +24,7 @@ class SettingsContainer extends Component {
   }
 
   static getFormData(form) {
-    return fromPairs([ ...(new FormData(form)) ]);
+    return fromPairs([ ...new FormData(form) ]);
   }
 
   handleSubmit = (e) => {
@@ -32,8 +34,8 @@ class SettingsContainer extends Component {
     const formData = SettingsContainer.getFormData(form);
     const settings = {
       github: omitBy({
-        login: formData.github_login || null,
-        pollInterval: parseInt(formData.github_poll_interval, 10) || null
+        login: formData.githubLogin || null,
+        pollInterval: parseInt(formData.githubPollInterval, 10) || null
       }, isNull)
     };
 
@@ -50,4 +52,4 @@ class SettingsContainer extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);
+export default withState(SettingsContainer);
