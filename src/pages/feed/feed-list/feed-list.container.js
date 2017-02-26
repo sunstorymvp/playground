@@ -21,13 +21,8 @@ const withData = graphql(starredRepositoriesQuery, {
 });
 
 class FeedListContainer extends Component {
-  state = {
-    loading: true,
-    feed: []
-  }
-
   static mapFeed({ user }) {
-    const data = user.following.nodes.map((followingNode) => (
+    const mapResult = user.following.nodes.map((followingNode) => (
       followingNode.starredRepositories.edges.map((repositoryEdge) => ({
         cursor: repositoryEdge.cursor,
         userName: followingNode.name,
@@ -38,16 +33,32 @@ class FeedListContainer extends Component {
         repositoryDescription: repositoryEdge.node.description
       }))
     ));
-    const flattenData = flatten(data);
-    const sortedData = sortBy(flattenData, (feed) => -feed.starredAt);
+    const result = sortBy(flatten(mapResult), (feed) => -feed.starredAt);
 
-    return sortedData;
+    return result;
+  }
+
+  state = {
+    loading: true,
+    feed: []
+  }
+
+  handleReceiveData(data) {
+    if (data.loading) {
+      this.setState({ loading: true });
+    } else if (data.error) {
+      console.error(data.error);
+
+      this.setState({ loading: false });
+    } else {
+      const feed = FeedListContainer.mapFeed(data);
+
+      this.setState({ feed, loading: false });
+    }
   }
 
   componentWillReceiveProps({ data }) {
-    const feed = FeedListContainer.mapFeed(data);
-
-    this.setState({ feed, loading: data.loading });
+    data && this.handleReceiveData(data);
   }
 
   render() {

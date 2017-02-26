@@ -1,9 +1,10 @@
 import { createActions, handleActions } from 'redux-actions';
+import { mapKeys } from 'lodash';
 
-export const actions = createActions('UPDATE_GITHUB_FOLLOWING');
+export const actions = createActions('FETCH_GITHUB_FOLLOWING_USERS');
 
 const initialState = {};
 
 export const reducer = handleActions({
-  [actions.updateGithubFollowing]: (state, action) => ({ ...state, ...action.payload })
+  [actions.fetchGithubFollowingUsers]: (state, action) => mapKeys(action.payload, 'id')
 }, initialState);
