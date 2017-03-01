@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
-export const reducer = combineReducers({
+import { reducer as feed } from './feed/feed.duck.js';
 
+export const reducer = combineReducers({
+  feed
 });

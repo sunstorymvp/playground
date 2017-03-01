@@ -1,0 +1,16 @@
+query following($login: String!, $cursor: String) {
+  user(login: $login) {
+    following(first: 100, after: $cursor) {
+      nodes {
+        id,
+        login,
+        name,
+        avatarURL
+      },
+    	pageInfo {
+        endCursor,
+        hasNextPage
+      }
+    }
+  }
+}

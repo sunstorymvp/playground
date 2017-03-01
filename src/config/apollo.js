@@ -14,6 +14,14 @@ const auth = {
 
 networkInterface.use([ auth ]);
 
-const client = new ApolloClient({ networkInterface });
+const dataIdFromObject = ({ __typename, id }) => (
+  __typename && id ? `${ __typename }_${ id }` : null
+);
+
+const client = new ApolloClient({
+  queryDeduplication: true,
+  networkInterface,
+  dataIdFromObject
+});
 
 export default client;

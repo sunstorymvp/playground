@@ -132,9 +132,9 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
-apollo-client@~0.8.7:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.8.7.tgz#73f52d1dd6dfe0f07e8bfe05a8e47c4bcd3bf7a3"
+apollo-client@^0.9.0, apollo-client@~0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.9.0.tgz#31b7ccdfc2e80b3eef2efe677027db0f14b8f05f"
   dependencies:
     graphql-anywhere "^2.1.0"
     graphql-tag "^1.1.1"
@@ -3343,7 +3343,7 @@ graphql-anywhere@^2.0.0, graphql-anywhere@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-2.2.0.tgz#652c3fa23a4a6cfeb98817512fb48100b97f3d5c"
 
-graphql-tag@^1.1.1, graphql-tag@^1.1.2, graphql-tag@~1.2.3:
+graphql-tag@^1.1.1, graphql-tag@^1.1.2, graphql-tag@^1.2.4, graphql-tag@~1.2.3:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.2.4.tgz#90c59bea41378513fd7213dc92537fcd20e4570f"
 
@@ -6135,11 +6135,13 @@ rc@^1.1.2, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-react-apollo@~0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.11.1.tgz#b168dbff1f88b43763c205b446a17d662ad9d749"
+react-apollo@~0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.13.0.tgz#7f3b22078ba7c5f91af10cc2acda0660604f9a66"
   dependencies:
+    apollo-client "^0.9.0"
     graphql-anywhere "^2.0.0"
+    graphql-tag "^1.2.4"
     hoist-non-react-statics "^1.2.0"
     invariant "^2.2.1"
     lodash.flatten "^4.2.0"
