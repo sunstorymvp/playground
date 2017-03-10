@@ -1,0 +1,28 @@
+#import "core/entities/github/users/users.fragments.graphql"
+#import "core/entities/github/repositories/repositories.fragments.graphql"
+
+query starredRepositories($login: String!, $followingCursor: String, $starredRepositoriesCursor: String) {
+  user(login: $login) {
+    following(first: 10, after: $followingCursor) {
+      nodes {
+        ...userInfo,
+        starredRepositories(first: 3, after: $starredRepositoriesCursor, orderBy: { field: STARRED_AT, direction: DESC }) {
+          edges {
+            starredAt,
+            node {
+              ...repositoryInfo
+            }
+          },
+          pageInfo {
+            endCursor,
+            hasNextPage
+          }
+        }
+      },
+      pageInfo {
+        endCursor,
+        hasNextPage
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { omitBy, isNull, fromPairs } from 'lodash';
+import { omitBy, isNull } from 'lodash';
 
 import Settings from './settings.component';
 import { actions as settingsActions } from 'core/settings/settings.duck';
@@ -24,7 +24,7 @@ class SettingsContainer extends Component {
   }
 
   static getFormData(form) {
-    return fromPairs([ ...new FormData(form) ]);
+    return new Map(new FormData(form));
   }
 
   handleSubmit = (e) => {
@@ -34,8 +34,8 @@ class SettingsContainer extends Component {
     const formData = SettingsContainer.getFormData(form);
     const settings = {
       github: omitBy({
-        login: formData.githubLogin || null,
-        pollInterval: parseInt(formData.githubPollInterval, 10) || null
+        login: formData.get('githubLogin') || null,
+        pollInterval: parseInt(formData.get('githubPollInterval'), 10) || null
       }, isNull)
     };
 

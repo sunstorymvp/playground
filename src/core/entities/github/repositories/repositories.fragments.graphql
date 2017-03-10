@@ -1,0 +1,7 @@
+fragment repositoryInfo on Repository {
+  id,
+  url,
+  homepageURL,
+  name,
+  description
+}

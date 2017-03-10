@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { isEqual } from 'lodash';
 
 import FeedList from './feed-list.component';
-import { fetchGithubFeed } from './feed-list.duck';
+import { fetchFeedList } from './feed-list.duck';
 import { feedSelector } from 'selectors/github';
 
 const mapStateToProps = (state) => ({
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({ fetchGithubFeed }, dispatch)
+  actions: bindActionCreators({ fetchFeedList }, dispatch)
 });
 
 const withState = connect(mapStateToProps, mapDispatchToProps);
@@ -26,7 +26,7 @@ class FeedListContainer extends Component {
   state = { loading: true }
 
   async componentDidMount() {
-    await this.props.actions.fetchGithubFeed();
+    await this.props.actions.fetchFeedList();
 
     this.setState({ loading: false });
   }

@@ -1,35 +1,21 @@
 import { transform, sortBy } from 'lodash';
 
-export const followingSelector = (state) => (
-  transform(state.entities.github.following, (result, value) => (
-    result.push(value) && result
-  ), [])
-);
-
-export const followingLoginsSelector = (state) => (
-  followingSelector(state).map(({ login }) => login)
-);
-
-export const starredRepositoriesSelector = (state) => (
-  transform(state.entities.github.starredRepositories, (result, value) => (
-    result.push(value) && result
-  ), [])
-);
-
 export const feedSelector = (state) => {
-  const starredRepositories = starredRepositoriesSelector(state);
+  const feed = transform(state.pages.feed.feedList, (result, value) => {
+    result.push({
+      id: value.id,
+      starredAt: new Date(value.starredAt),
+      userName: state.entities.github.users[value.userId].name,
+      userAvatarURL: state.entities.github.users[value.userId].avatarURL,
+      repositoryURL: state.entities.github.repositories[value.repositoryId].url,
+      repositoryName: state.entities.github.repositories[value.repositoryId].name,
+      repositoryDescription: state.entities.github.repositories[value.repositoryId].description
+    });
 
-  const mapResult = starredRepositories.map((repository) => ({
-    cursor: repository.cursor,
-    userName: state.entities.github.following[repository.starredBy].name,
-    userAvatarURL: state.entities.github.following[repository.starredBy].avatarURL,
-    starredAt: new Date(repository.starredAt),
-    repositoryURL: repository.url,
-    repositoryName: repository.name,
-    repositoryDescription: repository.description
-  }));
+    return result;
+  }, []);
 
-  const result = sortBy(mapResult, (feed) => -feed.starredAt);
+  const sortedFeed = sortBy(feed, ({ starredAt }) => -starredAt);
 
-  return result;
+  return sortedFeed;
 };

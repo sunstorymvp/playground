@@ -6,8 +6,8 @@ import FeedListItem from '../feed-list-item';
 
 const FeedList = ({ feed, loading }) => (
   <div className={ classNames(styles.root, { [styles.rootLoading]: loading }) }>
-    { loading || feed.map(({ cursor, ...itemData }) => (
-      <FeedListItem key={ cursor } { ...itemData } />
+    { loading || feed.map(({ id, ...itemData }) => (
+      <FeedListItem key={ id } { ...itemData } />
     )) }
   </div>
 );
