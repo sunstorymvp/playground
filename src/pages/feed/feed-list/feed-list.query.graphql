@@ -3,10 +3,10 @@
 
 query starredRepositories($login: String!, $followingCursor: String, $starredRepositoriesCursor: String) {
   user(login: $login) {
-    following(first: 10, after: $followingCursor) {
+    following(first: 100, after: $followingCursor) {
       nodes {
         ...userInfo,
-        starredRepositories(first: 3, after: $starredRepositoriesCursor, orderBy: { field: STARRED_AT, direction: DESC }) {
+        starredRepositories(first: 5, after: $starredRepositoriesCursor, orderBy: { field: STARRED_AT, direction: DESC }) {
           edges {
             starredAt,
             node {

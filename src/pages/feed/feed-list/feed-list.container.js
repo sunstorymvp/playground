@@ -32,10 +32,10 @@ class FeedListContainer extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const isNewFollowing = !isEqual(this.props.feed, nextProps.feed);
+    const isNewFeed = !isEqual(this.props.feed, nextProps.feed);
     const isNewLoadingState = this.state.loading !== nextState.loading;
 
-    return isNewFollowing || isNewLoadingState;
+    return isNewFeed || isNewLoadingState;
   }
 
   render() {
