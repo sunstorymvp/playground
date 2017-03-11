@@ -20,7 +20,7 @@ export const mapDataToGithubRepositories = (data) => (
 
     nodes.forEach((followingNode) => (
       followingNode.starredRepositories.edges.forEach(({ node }) => (
-        result[node.id] = omit({ ...node }, '__typename')
+        result[node.id] = omit(node, '__typename')
       ))
     ));
 
