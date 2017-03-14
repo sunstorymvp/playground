@@ -5,7 +5,7 @@ import { omitBy, isNull } from 'lodash';
 
 import Settings from './settings.component';
 import { actions as settingsActions } from 'core/settings/settings.duck';
-import { settingsSelector } from 'selectors/settings';
+import { settingsSelector } from 'core/settings/settings.selectors';
 
 const mapStateToProps = (state) => ({
   settings: settingsSelector(state)

@@ -19,16 +19,17 @@ export const mapDataToGithubRepositories = (data) => (
     const { nodes } = user.following;
 
     nodes.forEach((followingNode) => (
-      followingNode.starredRepositories.edges.forEach(({ node }) => (
-        result[node.id] = omit(node, '__typename')
-      ))
+      followingNode.starredRepositories.edges.forEach(({ node }) => {
+        result[node.id] = omit(node, '__typename');
+        result[node.id].owner = omit(node.owner, '__typename');
+      })
     ));
 
     return result;
   }, {})
 );
 
-export const mapDataToFeedList = (data) => {
+export const mapDataToFeedData = (data) => {
   const yesterday = moment().subtract(1, 'days');
 
   return data.reduce((result, { user }) => {

@@ -3,10 +3,10 @@
 .root {
   flex-shrink: 0;
   width: 350px;
-  height: 100%;
   border-right: 1px solid var(--color-pearl-gray);
   background-color: var(--color-white);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   &--loading,
   &--empty {

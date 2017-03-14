@@ -3,5 +3,8 @@ fragment repositoryInfo on Repository {
   url,
   homepageURL,
   name,
-  description
+  description,
+  owner {
+    login
+  }
 }

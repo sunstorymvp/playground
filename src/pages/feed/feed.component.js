@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Layout from 'core/layout';
 import FeedList from './feed-list';
-import FeedListPreview from './feed-item-preview';
+import FeedItemPreview from './feed-item-preview';
 
-const Feed = () => (
+const Feed = (props) => (
   <Layout>
-    <FeedList />
-    <FeedListPreview />
+    <FeedList loading={ props.feedLoading } feed={ props.feed } />
+    <FeedItemPreview loading={ props.previewLoading } preview={ props.preview } />
   </Layout>
 );
+
+Feed.propTypes = {
+  feed: PropTypes.array,
+  feedLoading: PropTypes.bool.isRequired,
+  preview: PropTypes.object,
+  previewLoading: PropTypes.bool.isRequired
+};
+
+Feed.defaultProps = {
+  feed: [],
+  preview: {}
+};
 
 export default Feed;
