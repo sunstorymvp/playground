@@ -87,6 +87,11 @@
     "webpack-dev-server": "~2.4.0",
     "webpack-notifier": "~1.5.0"
   },
+  "greenkeeper": {
+    "ignore": [
+      "react-router"
+    ]
+  },
   "engines": {
     "node": ">=6.9.1"
   }
