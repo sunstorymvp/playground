@@ -2,7 +2,6 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/sunstorymvp/playground.svg)](https://greenkeeper.io/)
 
 # playground
-
 React and friends
 
 ## what's included

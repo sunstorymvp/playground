@@ -11,12 +11,18 @@
   },
   "plugins": [
     "babel",
-    "react"
+    "react",
+    "compat"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "settings": {
+    "polyfills": [
+      "fetch"
+    ]
+  },
   "rules": {
     "no-alert": "error",
     "no-array-constructor": "error",
@@ -264,6 +270,8 @@
     "react/jsx-sort-props": "off",
     "react/jsx-space-before-closing": "error",
     "react/jsx-tag-spacing": "error",
-    "react/jsx-wrap-multilines": "error"
+    "react/jsx-wrap-multilines": "error",
+
+    "compat/compat": "error"
   }
 }
