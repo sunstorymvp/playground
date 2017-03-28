@@ -1,6 +1,7 @@
 @import "config/variables";
 
 body {
+  margin: 0;
   min-width: 1200px;
   color: var(--color-deep-gray);
   background-color: var(--color-space-blue);

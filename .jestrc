@@ -21,7 +21,6 @@
       "statements": 80
     }
   },
-  "mocksPattern": "src/tests/mocks",
   "moduleDirectories": [
     "src",
     "node_modules"
