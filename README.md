@@ -8,7 +8,6 @@ React and friends
 - [x] webpack 2
 - [x] code splitting with react-router (`import()`)
 - [x] configured tree shaking (even for vendors)
-- [x] configured HMR
 - [x] smart transpiling with `babel-preset-env` (see [.babelrc](.babelrc))
 - [x] smart polyfills with `babel-preset-env` (see [src/config/polyfill.js](src/config/polyfill.js))
 - [x] smart browser caching with `CommonsChunkPlugin`:

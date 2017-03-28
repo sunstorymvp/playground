@@ -5,7 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const { join, resolve } = path;
@@ -58,7 +57,6 @@ module.exports = (env) => {
   const notifier = new WebpackNotifierPlugin();
   const clearBuildFolders = new CleanWebpackPlugin([ resolve('dist') ]);
   const namedModules = new webpack.NamedModulesPlugin();
-  const progressBar = new ProgressBarPlugin();
 
   // note - keep order for CommonsChunk definitions.
   const plugins = [
@@ -69,7 +67,6 @@ module.exports = (env) => {
     npmCommonsChunk,
     asyncCommonsChunk,
     environment,
-    progressBar,
     noEmitOnErrors,
     clearBuildFolders,
     namedModules

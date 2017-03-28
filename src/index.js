@@ -13,7 +13,3 @@ const root = document.querySelector('#root');
 const renderApp = (component, props) => render(createElement(component, props), root);
 
 renderApp(App, { store, browserHistory, client });
-
-module.hot && module.hot.accept('core/app', () => (
-  renderApp(require('core/app').default, { store, browserHistory, client })
-));
