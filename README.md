@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/sunstorymvp/playground.svg?branch=master)](https://travis-ci.org/sunstorymvp/playground)
+[![Greenkeeper badge](https://badges.greenkeeper.io/sunstorymvp/playground.svg)](https://greenkeeper.io/)
 
 # playground
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/sunstorymvp/playground.svg)](https://greenkeeper.io/)
 React and friends
 
 ## what's included
