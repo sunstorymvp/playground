@@ -21,7 +21,7 @@
     "test:coverage": "npm run test -s -- --coverage"
   },
   "dependencies": {
-    "apollo-client": "~0.10.1",
+    "apollo-client": "~1.0.0-rc.9",
     "classnames": "~2.2.5",
     "graphql-tag": "~1.2.3",
     "lodash": "~4.17.4",
