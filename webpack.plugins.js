@@ -36,7 +36,6 @@ module.exports = (env) => {
     minChunks: (module) => /node_modules/.test(module.resource)
   });
   const asyncCommonsChunk = new webpack.optimize.CommonsChunkPlugin({
-    filename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].chunk.js',
     name: 'app',
     async: true
   });
