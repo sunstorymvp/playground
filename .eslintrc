@@ -26,7 +26,7 @@
   "rules": {
     "no-alert": "error",
     "no-array-constructor": "error",
-    "no-await-in-loop": "off",
+    "no-await-in-loop": "error",
     "no-bitwise": "error",
     "no-caller": "error",
     "no-catch-shadow": "error",
@@ -223,7 +223,6 @@
 
     "babel/new-cap": "error",
     "babel/object-curly-spacing": [ "error", "always" ],
-    "babel/no-await-in-loop": "error",
     "babel/no-invalid-this": "error",
 
     "react/display-name": "off",
@@ -250,7 +249,7 @@
     "react/sort-comp": "off",
     "react/sort-prop-types": "off",
     "react/style-prop-object": "error",
-    "react/void-dom-elements-no-children": "error",
+    "react/void-dom-elements-no-children": "off",
     "react/jsx-boolean-value": "error",
     "react/jsx-closing-bracket-location": [ "error", "after-props" ],
     "react/jsx-curly-spacing": [ "error", "always" ],
