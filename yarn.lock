@@ -6207,7 +6207,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.7, prop-types@~15.5.7, prop-types@~15.5.8:
+prop-types@^15.5.1, prop-types@^15.5.7, prop-types@~15.5.7, prop-types@~15.5.8:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -6335,13 +6335,14 @@ react-helmet@~5.0.2:
     object-assign "^4.1.1"
     react-side-effect "^1.1.0"
 
-react-markdown@~2.4.5:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-2.4.5.tgz#e8fd1b7d90a7c616fc66fd66d85c678ebb1120f6"
+react-markdown@~2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-2.5.0.tgz#b1c61904fee5895886803bd9df7db23c3dc3a89e"
   dependencies:
     commonmark "^0.24.0"
     commonmark-react-renderer "^4.2.4"
     in-publish "^2.0.0"
+    prop-types "^15.5.1"
 
 react-redux@~5.0.1:
   version "5.0.2"
