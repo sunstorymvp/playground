@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Router, IndexRoute, Route } from 'react-router';
+import PropTypes from 'prop-types';
 
 import LazyComponent from 'shared/lazy-component';
 import Feed from 'pages/feed';
