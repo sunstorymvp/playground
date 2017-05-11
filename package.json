@@ -59,7 +59,7 @@
     "babili": "~0.0.9",
     "clean-webpack-plugin": "~0.1.14",
     "concurrently": "~3.4.0",
-    "cross-env": "~4.0.0",
+    "cross-env": "~5.0.0",
     "css-loader": "~0.28.0",
     "css-mqpacker": "~6.0.0",
     "eslint": "~3.19.0",
