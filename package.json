@@ -23,7 +23,7 @@
   "dependencies": {
     "apollo-client": "~1.2.1",
     "classnames": "~2.2.5",
-    "graphql-tag": "~1.2.3",
+    "graphql-tag": "~2.1.0",
     "lodash": "~4.17.4",
     "moment": "~2.18.1",
     "normalize.css": "~7.0.0",
