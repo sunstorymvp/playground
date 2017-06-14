@@ -31,7 +31,7 @@
     "react-apollo": "~1.2.0",
     "prop-types": "~15.5.8",
     "react": "~15.5.4",
-    "react-dom": "~15.5.4",
+    "react-dom": "~15.6.0",
     "react-helmet": "~5.0.2",
     "react-markdown": "~2.5.0",
     "react-redux": "~5.0.1",
