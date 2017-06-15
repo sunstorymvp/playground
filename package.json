@@ -30,7 +30,7 @@
     "normalizr": "~3.2.1",
     "react-apollo": "~1.2.0",
     "prop-types": "~15.5.8",
-    "react": "~15.5.4",
+    "react": "~15.6.1",
     "react-dom": "~15.5.4",
     "react-helmet": "~5.0.2",
     "react-markdown": "~2.5.0",
