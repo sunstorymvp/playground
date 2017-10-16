@@ -40,7 +40,7 @@ yarn
 
 ## run
 ```
-yarn run start:development
+yarn run start
 ```
 
 open [http://localhost:4000/](http://localhost:4000/).
