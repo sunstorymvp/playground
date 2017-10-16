@@ -3,8 +3,6 @@ languages:
   - css
 files:
   - "src/**/*"
-exclude:
-  - "src/tests/**/*"
 blame: true
 skip-comments: true
 verbose: true
