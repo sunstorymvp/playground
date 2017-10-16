@@ -7,6 +7,7 @@ module.exports = () => ({
     children: false,
     hash: false,
     timings: false,
-    version: false
+    version: false,
+    maxModules: 0
   }
 });

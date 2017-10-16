@@ -21,7 +21,7 @@ React and friends
 - [x] cssnext with smart fallbacks (see [browserslist](browserslist))
 - [x] small images inlining
 - [x] media queries merging
-- [x] minification: `babili`, `cssnano`, `html-minifier`, `imagemin`
+- [x] minification: `uglifyjs`, `cssnano`, `html-minifier`, `imagemin`
 - [x] js and css sourcemaps in development
 - [x] linters:
   - [x] eslint with `node` and `react` plugins

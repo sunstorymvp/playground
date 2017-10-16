@@ -6,6 +6,7 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = (env) => {
   const html = new HtmlWebpackPlugin({
@@ -54,6 +55,7 @@ module.exports = (env) => {
   const notifier = new WebpackNotifierPlugin();
   const clearBuildFolders = new CleanWebpackPlugin([ path.resolve('dist') ]);
   const namedModules = new webpack.NamedModulesPlugin();
+  const uglifyJsPlugin = new UglifyJsPlugin();
 
   // note - keep order for CommonsChunk definitions.
   const plugins = [
@@ -71,6 +73,10 @@ module.exports = (env) => {
 
   if (env.development) {
     plugins.push(notifier);
+  }
+
+  if (env.production) {
+    plugins.push(uglifyJsPlugin);
   }
 
   if (env.analyze) {
