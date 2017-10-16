@@ -6,19 +6,4 @@
   background-color: var(--color-white);
   overflow-y: auto;
   overflow-x: hidden;
-
-  &--loading,
-  &--empty {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &--loading::before {
-    content: "Loading...";
-  }
-
-  &--empty::before {
-    content: "Select feed item to see preview.";
-  }
 }

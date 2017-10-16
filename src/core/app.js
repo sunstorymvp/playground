@@ -1,20 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ApolloProvider } from 'react-apollo';
-import ApolloClient from 'apollo-client';
+import { Provider } from 'react-redux';
 
 import AppRouter from './app-router';
 
-const App = ({ store, browserHistory, client }) => (
-  <ApolloProvider store={ store } client={ client }>
+const App = ({ store, browserHistory }) => (
+  <Provider store={ store }>
     <AppRouter browserHistory={ browserHistory } />
-  </ApolloProvider>
+  </Provider>
 );
 
 App.propTypes = {
   store: PropTypes.object.isRequired,
-  browserHistory: PropTypes.object.isRequired,
-  client: PropTypes.instanceOf(ApolloClient).isRequired
+  browserHistory: PropTypes.object.isRequired
 };
 
 export default App;

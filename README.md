@@ -30,7 +30,6 @@ React and friends
   - [x] removed duplicated rules inherited from `extends`
 - [x] yarn lockfile
 - [x] jest testing config (with coverage)
-- [x] graphql client ([Apollo](http://dev.apollodata.com/))
 - [x] Travis CI
 - [x] configured [copy-paste](https://github.com/kucherenko/jscpd) detector
 
@@ -38,9 +37,6 @@ React and friends
 ```
 yarn
 ```
-
-## configure
-To provide application secrets (github auth token, etc.) copy and fill [constants.secrets.js.example](src/config/constants.secrets.js.example) then save it without `.example`
 
 ## run
 ```

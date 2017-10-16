@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 
 module.exports = (env) => {
   const html = new HtmlWebpackPlugin({
@@ -56,6 +57,10 @@ module.exports = (env) => {
   const clearBuildFolders = new CleanWebpackPlugin([ path.resolve('dist') ]);
   const namedModules = new webpack.NamedModulesPlugin();
   const uglifyJsPlugin = new UglifyJsPlugin();
+  const unusedFilesWebpackPlugin = new UnusedFilesWebpackPlugin({
+    pattern: '@(src|style)/**/!(*.test|*.stories).@(js|scss)',
+    globOptions: { ignore: 'src/**/__mocks__/**' }
+  });
 
   // note - keep order for CommonsChunk definitions.
   const plugins = [
@@ -68,7 +73,8 @@ module.exports = (env) => {
     environment,
     noEmitOnErrors,
     clearBuildFolders,
-    namedModules
+    namedModules,
+    unusedFilesWebpackPlugin
   ];
 
   if (env.development) {

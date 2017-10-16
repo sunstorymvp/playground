@@ -31,7 +31,6 @@ module.exports = {
   notify: true,
   testRegex: '\\.test\\.js$',
   transform: {
-    '\\.(gql|graphql)$': 'jest-transform-graphql',
     '.*': 'babel-jest'
   },
   snapshotSerializers: [ 'enzyme-to-json/serializer' ]
