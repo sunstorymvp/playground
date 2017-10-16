@@ -26,7 +26,7 @@
     "no-caller": "error",
     "no-catch-shadow": "error",
     "no-confusing-arrow": [ "error", { "allowParens": true } ],
-    "no-console": [ "error", { "allow": [ "warn", "error", "info" ] } ],
+    "no-console": [ "warn", { "allow": [ "warn", "error", "info" ] } ],
     "no-constant-condition": [ "error", { "checkLoops": false } ],
     "no-continue": "error",
     "no-div-regex": "error",
