@@ -6,7 +6,7 @@ React and friends
 
 ## what's included
 - [x] react and friends
-- [x] webpack 2
+- [x] webpack 3
 - [x] code splitting with react-router (`import()`)
 - [x] configured tree shaking (even for vendors)
 - [x] smart transpiling with `babel-preset-env` (see [.babelrc](.babelrc))
@@ -20,7 +20,6 @@ React and friends
 - [x] configured [css-modules](https://github.com/css-modules/css-modules)
 - [x] cssnext with smart fallbacks (see [browserslist](browserslist))
 - [x] small images inlining
-- [x] media queries merging
 - [x] minification: `uglifyjs`, `cssnano`, `html-minifier`, `imagemin`
 - [x] js and css sourcemaps in development
 - [x] linters:
