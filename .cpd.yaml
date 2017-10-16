@@ -8,3 +8,4 @@ skip-comments: true
 verbose: true
 min-lines: 3
 min-tokens: 50
+limit: 5
