@@ -8,7 +8,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --env.development",
     "build": "cross-env NODE_ENV=production webpack --env.production",
-    "analyze:bundle": "cross-env NODE_ENV=production webpack --env.analyze",
+    "build:analyze": "cross-env NODE_ENV=production webpack --env.analyze",
     "test": "concurrently 'npm run test:lint -s' 'npm run test:ui -s' 'npm run test:copypaste -s'",
     "test:ui": "cross-env NODE_ENV=test jest",
     "test:coverage": "npm run test -s -- --coverage",
