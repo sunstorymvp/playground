@@ -1,17 +1,18 @@
 import React from 'react';
-import { Router, IndexRoute, Route } from 'react-router';
+import { Switch, Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
 import PropTypes from 'prop-types';
 
 import LazyComponent from 'shared/lazy-component';
 import Feed from 'pages/feed';
 
 const AppRouter = ({ browserHistory }) => (
-  <Router history={ browserHistory }>
-    <Route path="/">
-      <IndexRoute component={ Feed } />
-      <Route path="settings" component={ LazyComponent.wrap('pages/settings') } />
-    </Route>
-  </Router>
+  <ConnectedRouter history={ browserHistory }>
+    <Switch>
+      <Route path="/" exact component={ Feed } />
+      <Route path="/settings" component={ LazyComponent.wrap('pages/settings') } />
+    </Switch>
+  </ConnectedRouter>
 );
 
 AppRouter.propTypes = {

@@ -4,12 +4,10 @@ const getModule = require('./webpack.module');
 const getPlugins = require('./webpack.plugins');
 const getDevServer = require('./webpack.dev-server');
 
-const { NODE_ENV } = process.env;
-
-if (!NODE_ENV) {
+if (!process.env.NODE_ENV) {
   throw new Error('NODE_ENV is not set. You should fix it before continue.');
-} else if (![ 'development', 'production', 'test' ].includes(NODE_ENV)) {
-  throw new Error(`"${ NODE_ENV }" is not a valid NODE_ENV value!`);
+} else if (![ 'development', 'production', 'test' ].includes(process.env.NODE_ENV)) {
+  throw new Error(`"${ process.env.NODE_ENV }" is not a valid NODE_ENV value!`);
 }
 
 module.exports = (env) => {
