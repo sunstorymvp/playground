@@ -21,8 +21,6 @@
   },
   "dependencies": {
     "classnames": "~2.2.5",
-    "lodash": "~4.17.4",
-    "moment": "~2.18.1",
     "normalize.css": "~7.0.0",
     "prop-types": "~15.5.8",
     "react": "~15.5.4",
