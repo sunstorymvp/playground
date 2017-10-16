@@ -16,6 +16,7 @@
     "test:lint": "concurrently 'npm run test:lint:eslint -s' 'npm run test:lint:stylelint -s'",
     "test:lint:eslint": "eslint --cache --max-warnings=0 .",
     "test:lint:stylelint": "stylelint **/src/**/*.css --cache",
+    "ci:test": "npm run test:lint:eslint -s && npm run test:lint:stylelint -s && npm run test:copypaste -s && npm run test:ui -s -- --runInBand --ci",
     "prepush": "npm run test"
   },
   "dependencies": {
