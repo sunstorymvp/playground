@@ -64,10 +64,6 @@ module.exports = (env) => ({
       options: {
         name: path.join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
       }
-    },
-    {
-      test: /\.(graphql|gql)$/,
-      loader: 'graphql-tag/loader'
     }
   ]
 });
