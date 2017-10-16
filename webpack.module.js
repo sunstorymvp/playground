@@ -1,19 +1,17 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const { join, resolve } = path;
-
 module.exports = (env) => ({
   rules: [
     {
       test: /\.js$/,
-      include: resolve('src'),
+      include: path.resolve('src'),
       loader: 'babel-loader',
       options: { cacheDirectory: env.development }
     },
     {
       test: /\.css$/,
-      include: resolve('src'),
+      include: path.resolve('src'),
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
@@ -32,7 +30,7 @@ module.exports = (env) => ({
     },
     {
       test: /\.css$/,
-      include: resolve('node_modules'),
+      include: path.resolve('node_modules'),
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: {
@@ -48,7 +46,7 @@ module.exports = (env) => ({
       test: /\.(png|jpe?g|webp)$/,
       loader: 'url-loader',
       options: {
-        name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
+        name: path.join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
         limit: 20000
       }
     },
@@ -56,7 +54,7 @@ module.exports = (env) => ({
       test: /\.svg$/,
       loader: 'svg-url-loader',
       options: {
-        name: join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
+        name: path.join('assets', 'images', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]'),
         limit: 20000
       }
     },
@@ -64,7 +62,7 @@ module.exports = (env) => ({
       test: /\.(woff|woff2)$/,
       loader: 'file-loader',
       options: {
-        name: join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
+        name: path.join('assets', 'fonts', env.production ? '[name].[hash:6].[ext]' : '[name].[ext]')
       }
     },
     {

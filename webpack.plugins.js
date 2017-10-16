@@ -7,13 +7,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
-const { join, resolve } = path;
-
 module.exports = (env) => {
   const html = new HtmlWebpackPlugin({
     // filename (unix) relative to config output.path
     filename: 'index.html',
-    template: join('src', 'index.html'),
+    template: path.join('src', 'index.html'),
     inject: true,
     minify: env.production ? {
       collapseWhitespace: true,
@@ -45,7 +43,7 @@ module.exports = (env) => {
     allChunks: true
   });
   const analyzer = new BundleAnalyzerPlugin({
-    reportFilename: join('..', 'webpack_analyzer_report.html'),
+    reportFilename: path.join('..', 'webpack_analyzer_report.html'),
     analyzerMode: 'static'
   });
   const minifyImages = new ImageminPlugin({
@@ -54,7 +52,7 @@ module.exports = (env) => {
   const environment = new webpack.EnvironmentPlugin([ 'NODE_ENV' ]);
   const noEmitOnErrors = new webpack.NoEmitOnErrorsPlugin();
   const notifier = new WebpackNotifierPlugin();
-  const clearBuildFolders = new CleanWebpackPlugin([ resolve('dist') ]);
+  const clearBuildFolders = new CleanWebpackPlugin([ path.resolve('dist') ]);
   const namedModules = new webpack.NamedModulesPlugin();
 
   // note - keep order for CommonsChunk definitions.
