@@ -1,8 +1,9 @@
 const path = require('path');
+
 const getModule = require('./webpack.module');
 const getPlugins = require('./webpack.plugins');
+const getDevServer = require('./webpack.dev-server');
 
-const { resolve } = path;
 const { NODE_ENV } = process.env;
 
 if (!NODE_ENV) {
@@ -13,42 +14,32 @@ if (!NODE_ENV) {
 
 module.exports = (env) => ({
   entry: {
-    polyfill: resolve('src', 'config', 'polyfill.js'),
-    vendor: resolve('src', 'config', 'vendor.js'),
-    app: resolve('src', 'index.js')
+    polyfill: path.resolve('src', 'config', 'polyfill.js'),
+    vendor: path.resolve('src', 'config', 'vendor.js'),
+    app: path.resolve('src', 'index.js')
   },
   output: {
-    path: resolve('dist'),
-    publicPath: '/',
+    path: path.resolve('dist'),
     filename: env.production ? '[name].[chunkhash:6].bundle.js' : '[name].bundle.js',
     chunkFilename: env.production ? '[id].[chunkhash:6].chunk.js' : '[id].chunk.js',
-    pathinfo: env.development
+    pathinfo: env.development,
+    publicPath: '/'
   },
   resolve: {
-    extensions: [ '.js', '.json' ],
-    modules: [ resolve('src'), 'node_modules' ]
+    modules: [
+      path.resolve('src'),
+      'node_modules'
+    ]
   },
   module: getModule(env),
   plugins: getPlugins(env),
   devtool: env.development && 'inline-source-map',
-  devServer: {
-    compress: true,
-    historyApiFallback: true,
-    port: 4000,
-    stats: {
-      chunks: false,
-      children: false,
-      hash: false,
-      timings: false,
-      version: false
-    }
-  },
+  devServer: getDevServer(),
   watchOptions: {
     aggregateTimeout: 100,
     ignored: /node_modules/
   },
   performance: {
-    // disable because minification handled outside of webpack
     hints: false
   }
 });

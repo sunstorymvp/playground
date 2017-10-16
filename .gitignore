@@ -32,8 +32,9 @@ jspm_packages
 # macOS
 *.DS_Store
 
-# eslint cache file
+# linters cache
 .eslintcache
+.stylelintcache
 
 # client build
 dist/
@@ -42,7 +43,7 @@ dist/
 webpack_analyzer_report.html
 
 # client tests coverage report
-tests/coverage
+coverage
 
 # application secrets, tokens, etc.
 constants.secrets.js
