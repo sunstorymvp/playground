@@ -39,9 +39,6 @@ jspm_packages
 # client build
 dist/
 
-# analyzer report
-webpack_analyzer_report.html
-
 # client tests coverage report
 coverage
 

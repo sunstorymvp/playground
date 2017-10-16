@@ -6,7 +6,6 @@ module.exports = () => ({
     chunks: false,
     children: false,
     hash: false,
-    timings: false,
     version: false,
     maxModules: 0
   }

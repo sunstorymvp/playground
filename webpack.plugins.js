@@ -44,10 +44,7 @@ module.exports = (env) => {
     disable: env.development || env.test,
     allChunks: true
   });
-  const analyzer = new BundleAnalyzerPlugin({
-    reportFilename: path.join('..', 'webpack_analyzer_report.html'),
-    analyzerMode: 'static'
-  });
+  const analyzer = new BundleAnalyzerPlugin();
   const minifyImages = new ImageminPlugin({
     disable: env.development || env.test
   });
@@ -72,7 +69,6 @@ module.exports = (env) => {
     asyncCommonsChunk,
     environment,
     noEmitOnErrors,
-    clearBuildFolders,
     namedModules,
     unusedFilesWebpackPlugin
   ];
@@ -82,7 +78,7 @@ module.exports = (env) => {
   }
 
   if (env.production) {
-    plugins.push(uglifyJsPlugin);
+    plugins.push(clearBuildFolders, uglifyJsPlugin);
   }
 
   if (env.analyze) {

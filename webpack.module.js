@@ -1,46 +1,53 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const getStyleLoaders = (env, { modules }) => ExtractTextPlugin.extract({
+  fallback: 'style-loader',
+  use: [
+    {
+      loader: 'cache-loader',
+      options: {
+        cacheDirectory: path.resolve('node_modules', '.cache', 'cache-loader')
+      }
+    },
+    {
+      loader: 'css-loader',
+      options: {
+        minimize: env.production,
+        sourceMap: env.development,
+        localIdentName: '_[hash:6]__[folder]_[local]',
+        importLoaders: 1,
+        modules
+      }
+    },
+    { loader: 'postcss-loader' }
+  ]
+});
+
 module.exports = (env) => ({
   rules: [
     {
       test: /\.js$/,
       include: path.resolve('src'),
-      loader: 'babel-loader',
-      options: { cacheDirectory: env.development }
+      use: [
+        {
+          loader: 'cache-loader',
+          options: {
+            cacheDirectory: path.resolve('node_modules', '.cache', 'cache-loader')
+          }
+        },
+        { loader: 'babel-loader' }
+      ]
     },
     {
       test: /\.css$/,
       include: path.resolve('src'),
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: env.production,
-              sourceMap: env.development,
-              localIdentName: env.production ? '[hash:6]' : '[path][name]__[local]',
-              modules: true
-            }
-          },
-          { loader: 'postcss-loader' }
-        ]
-      })
+      use: getStyleLoaders(env, { modules: true })
     },
     {
       test: /\.css$/,
       include: path.resolve('node_modules'),
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: {
-          loader: 'css-loader',
-          options: {
-            minimize: env.production,
-            sourceMap: env.development
-          }
-        }
-      })
+      use: getStyleLoaders(env, { modules: false })
     },
     {
       test: /\.(png|jpe?g|webp)$/,
