@@ -6,11 +6,11 @@
   "author": "sunstorymvp",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --env.development",
-    "build": "cross-env NODE_ENV=production webpack --env.production",
-    "build:analyze": "cross-env NODE_ENV=production webpack --env.analyze",
+    "start": "webpack-dev-server --progress --env.development",
+    "build": "webpack --env.production",
+    "build:analyze": "webpack --env.analyze",
     "test": "concurrently 'npm run test:lint -s' 'npm run test:ui -s' 'npm run test:copypaste -s'",
-    "test:ui": "cross-env NODE_ENV=test jest",
+    "test:ui": "jest",
     "test:coverage": "npm run test -s -- --coverage",
     "test:copypaste": "jscpd",
     "test:lint": "concurrently 'npm run test:lint:eslint -s' 'npm run test:lint:stylelint -s'",
@@ -50,8 +50,8 @@
     "cache-loader": "~1.1.0",
     "clean-webpack-plugin": "~0.1.17",
     "concurrently": "~3.5.0",
-    "cross-env": "~5.1.0",
     "css-loader": "~0.28.7",
+    "dotenv": "~4.0.0",
     "enzyme": "~3.1.0",
     "enzyme-to-json": "~3.1.4",
     "eslint": "~4.9.0",
@@ -82,6 +82,7 @@
     "webpack": "~3.7.1",
     "webpack-bundle-analyzer": "~2.9.0",
     "webpack-dev-server": "~2.9.2",
+    "webpack-dotenv-plugin": "~2.0.2",
     "webpack-notifier": "~1.5.0"
   },
   "engines": {

@@ -8,9 +8,10 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = (env) => {
-  const html = new HtmlWebpackPlugin({
+  const htmlWebpackPlugin = new HtmlWebpackPlugin({
     // filename (unix) relative to config output.path
     filename: 'index.html',
     template: path.join('src', 'index.html'),
@@ -39,50 +40,53 @@ module.exports = (env) => {
     name: 'app',
     async: true
   });
-  const styles = new ExtractTextPlugin({
+  const extractTextPlugin = new ExtractTextPlugin({
     filename: env.production ? '[name].[contenthash:6].bundle.css' : '[name].bundle.css',
     disable: env.development || env.test,
     allChunks: true
   });
-  const analyzer = new BundleAnalyzerPlugin();
-  const minifyImages = new ImageminPlugin({
+  const bundleAnalyzerPlugin = new BundleAnalyzerPlugin();
+  const imageminPlugin = new ImageminPlugin({
     disable: env.development || env.test
   });
-  const environment = new webpack.EnvironmentPlugin([ 'NODE_ENV' ]);
-  const noEmitOnErrors = new webpack.NoEmitOnErrorsPlugin();
-  const notifier = new WebpackNotifierPlugin();
-  const clearBuildFolders = new CleanWebpackPlugin([ path.resolve('dist') ]);
-  const namedModules = new webpack.NamedModulesPlugin();
+  const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin();
+  const webpackNotifierPlugin = new WebpackNotifierPlugin();
+  const cleanWebpackPlugin = new CleanWebpackPlugin([ path.resolve('dist') ]);
+  const namedModulesPlugin = new webpack.NamedModulesPlugin();
   const uglifyJsPlugin = new UglifyJsPlugin();
   const unusedFilesWebpackPlugin = new UnusedFilesWebpackPlugin({
     pattern: '@(src|style)/**/!(*.test|*.stories).@(js|scss)',
     globOptions: { ignore: 'src/**/__mocks__/**' }
   });
+  const dotenvPlugin = new DotenvPlugin({
+    sample: path.resolve('.env.default'),
+    path: path.resolve('.env')
+  });
 
   // note - keep order for CommonsChunk definitions.
   const plugins = [
-    html,
-    styles,
-    minifyImages,
+    htmlWebpackPlugin,
+    extractTextPlugin,
+    imageminPlugin,
     webpackCommonsChunk,
     npmCommonsChunk,
     asyncCommonsChunk,
-    environment,
-    noEmitOnErrors,
-    namedModules,
-    unusedFilesWebpackPlugin
+    noEmitOnErrorsPlugin,
+    namedModulesPlugin,
+    unusedFilesWebpackPlugin,
+    dotenvPlugin
   ];
 
   if (env.development) {
-    plugins.push(notifier);
+    plugins.push(webpackNotifierPlugin);
   }
 
   if (env.production) {
-    plugins.push(clearBuildFolders, uglifyJsPlugin);
+    plugins.push(cleanWebpackPlugin, uglifyJsPlugin);
   }
 
   if (env.analyze) {
-    plugins.push(analyzer);
+    plugins.push(bundleAnalyzerPlugin);
   }
 
   return plugins;

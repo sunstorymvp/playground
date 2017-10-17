@@ -38,3 +38,6 @@ jspm_packages
 
 # client build
 dist/
+
+# environment variables
+.env

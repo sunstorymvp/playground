@@ -14,3 +14,6 @@ addons:
 script:
   - yarn run build
   - yarn run ci:test
+before_script:
+  - touch .env
+  - echo NODE_ENV=production >> .env

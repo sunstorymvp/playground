@@ -1,8 +1,11 @@
 const path = require('path');
+const dotenv = require('dotenv');
 
 const getModule = require('./webpack.module');
 const getPlugins = require('./webpack.plugins');
 const getDevServer = require('./webpack.dev-server');
+
+dotenv.config();
 
 if (!process.env.NODE_ENV) {
   throw new Error('NODE_ENV is not set. You should fix it before continue.');
