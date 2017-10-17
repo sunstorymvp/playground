@@ -14,8 +14,9 @@ if (process.env.NODE_ENV === 'development') {
   middlewares.push(logger);
 }
 
-// eslint-disable-next-line no-underscore-dangle, no-undef
-const composeEnhancers = typeof __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function' ? __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+// eslint-disable-next-line no-underscore-dangle
+const reduxDevtoolsCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const composeEnhancers = typeof reduxDevtoolsCompose === 'function' ? reduxDevtoolsCompose : compose;
 
 const enhancer = composeEnhancers(
   applyMiddleware(...middlewares)
