@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
+import { Switch, Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
 
-import AppRouter from './app-router';
+import LazyComponent from 'shared/lazy-component';
+import Feed from 'pages/feed';
 
 const App = ({ store, browserHistory }) => (
   <Provider store={ store }>
-    <AppRouter browserHistory={ browserHistory } />
+    <ConnectedRouter history={ browserHistory }>
+      <Switch>
+        <Route path="/" exact component={ Feed } />
+        <Route path="/settings" component={ LazyComponent.wrap('pages/settings') } />
+      </Switch>
+    </ConnectedRouter>
   </Provider>
 );
 
