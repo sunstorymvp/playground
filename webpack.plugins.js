@@ -55,7 +55,7 @@ module.exports = (env) => {
   const namedModulesPlugin = new webpack.NamedModulesPlugin();
   const uglifyJsPlugin = new UglifyJsPlugin();
   const unusedFilesWebpackPlugin = new UnusedFilesWebpackPlugin({
-    pattern: '@(src|style)/**/!(*.test|*.stories).@(js|scss)',
+    pattern: 'src/**/!(*.test|*.stories).@(js|css)',
     globOptions: { ignore: 'src/**/__mocks__/**' }
   });
   const dotenvPlugin = new DotenvPlugin({

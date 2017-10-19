@@ -5,14 +5,14 @@ import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
 import LazyComponent from 'shared/lazy-component';
-import Feed from 'pages/feed';
+import Feed from 'features/feed';
 
 const App = ({ store, browserHistory }) => (
   <Provider store={ store }>
     <ConnectedRouter history={ browserHistory }>
       <Switch>
         <Route path="/" exact component={ Feed } />
-        <Route path="/settings" component={ LazyComponent.wrap('pages/settings') } />
+        <Route path="/settings" component={ LazyComponent.wrap('features/settings') } />
       </Switch>
     </ConnectedRouter>
   </Provider>
