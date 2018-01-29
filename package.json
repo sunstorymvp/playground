@@ -51,7 +51,7 @@
     "clean-webpack-plugin": "~0.1.17",
     "concurrently": "~3.5.0",
     "css-loader": "~0.28.7",
-    "dotenv": "~4.0.0",
+    "dotenv": "~5.0.0",
     "enzyme": "~3.1.0",
     "enzyme-to-json": "~3.1.4",
     "eslint": "~4.9.0",
